@@ -1065,8 +1065,9 @@ window.novaUtil.showFacsimile = function() {
 };
 
 function showRewardsAnimation(body) {
-    var node = cc.find('Canvas/prefab_voice_score_01/'+body.nodeName);
+    var node = cc.find('Canvas/prefab_voice_score_01/' + body.nodeName);
     if (!node) return;
+    if (!node.getComponent('anim')) return;
     node.getComponent('anim').showAnim();
 }
 
@@ -1526,6 +1527,8 @@ function receiveCoursewareMessage(content) {
         if (content.msg == 'nova.teacher.start.02') handlerTeacherStartTimeOut_02(content.body);
         //语文老师奖励
         if (content.msg == 'nova.teacher.rewards') handlerTeacherStartRewards(content.body);
+        //语文上下页切换卡片
+        if (content.msg == 'nova.teacher.toggle.card') handlerTeacherToggleCard(content.body);
 
         // student
         if (content.msg == 'nova.student.answer') handlerStudentAnswer(content.body && content.body.body ? content.body.body : content.body);
@@ -1752,6 +1755,25 @@ function getInitVars(name) {
 function playMusic(node, jsName, mName) {
     var js = node.getComponents(jsName);
     if (js && js.length && js[0][mName]) cc.audioEngine.playEffect(js[0][mName], false);
+}
+
+//语文学生端接受卡片切换
+function handlerTeacherToggleCard(body) {
+    var marking = body.marking;
+    var isInitialization = body.isInitialization;
+    if (marking && !isInitialization) {
+        if (marking == "nextPageBtn") {
+            var node = cc.find('Canvas/student/nextPageBtn');
+            if (!node) return;
+            if (!node.getComponent('toggle_card')) return;
+            node.getComponent('toggle_card').nextPageBtn();
+        } else if (marking == "upPageBtn") {
+            var node = cc.find('Canvas/student/upPageBtn');
+            if (!node) return;
+            if (!node.getComponent('toggle_card')) return;
+            node.getComponent('toggle_card').upPageBtn();
+        }
+    }
 }
 
 // handler teacher card
@@ -2131,6 +2153,61 @@ window.nova.teacherDrag = function(action, data, cmds, x, y) {
     // sync status
     if (action == 'drag_end') window.nova.syncStatus();
 };
+
+//语文切换卡片
+window.nova.toggleCard = function(marking, isInitialization) {
+
+    if (!window.nova.isTeacher()) return;
+
+    if (cc.find('Canvas/Sprite')) cc.find('Canvas/Sprite').destroy();
+
+    // record the time of change card
+    window.novaUtil.startTimeS = window.novaUtil.timerS;
+
+    // send msg
+    window.WCRDocSDK.sendMessage('nova.teacher.toggle.card', {
+        marking: marking,
+        isInitialization: isInitialization
+    });
+
+    if (!isInitialization) {
+        // sync status
+        window.nova.syncStatus();
+        // clear
+        window.nova.set(window.nova.key() + '_student', '');
+    }
+};
+
+window.nova.teacherCard = function(activeCard, cards, isInitialization) {
+    if (!window.nova.isTeacher()) return;
+
+    if (cc.find('Canvas/Sprite')) cc.find('Canvas/Sprite').destroy();
+
+    // record the time of change card
+    window.novaUtil.startTimeS = window.novaUtil.timerS;
+
+    // send msg
+    window.WCRDocSDK.sendMessage('nova.teacher.card', {
+        activeCard: activeCard,
+        cards: cards,
+        isInitialization: isInitialization
+    });
+
+    if (!isInitialization) {
+        // hide flag
+        window.nova.teacherHideFlag();
+
+        // set auth
+        window.nova.teacherSetAuth('true');
+
+        // sync status
+        window.nova.syncStatus();
+
+        // clear
+        window.nova.set(window.nova.key() + '_student', '');
+    }
+};
+
 window.nova.teacherCard = function(activeCard, cards, isInitialization) {
     if (!window.nova.isTeacher()) return;
 

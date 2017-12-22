@@ -1,13 +1,3 @@
-// Learn cc.Class:
-//  - [Chinese] http://www.cocos.com/docs/creator/scripting/class.html
-//  - [English] http://www.cocos2d-x.org/docs/editors_and_tools/creator-chapters/scripting/class/index.html
-// Learn Attribute:
-//  - [Chinese] http://www.cocos.com/docs/creator/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/editors_and_tools/creator-chapters/scripting/reference/attributes/index.html
-// Learn life-cycle callbacks:
-//  - [Chinese] http://www.cocos.com/docs/creator/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/editors_and_tools/creator-chapters/scripting/life-cycle-callbacks/index.html
-
 cc.Class({
     extends: cc.Component,
 
@@ -17,6 +7,7 @@ cc.Class({
 
     onLoad() {
         var self = this;
+        self.isTeacher = self.isTeacherMothed();
         self.cards = self.getCards();
         self.initEventBtn();
         self.initBtn();
@@ -44,9 +35,12 @@ cc.Class({
         });
     },
 
+    isTeacherMothed: function() {
+        return window.WCRDocSDK && window.WCRDocSDK.isTeacher && window.WCRDocSDK.isTeacher();
+    },
+
     initBtn: function() {
         var self = this;
-        cc.find('Canvas/student/upPageBtn').opacity = 0;
         if (self.cards && self.cards.length < 2) cc.find('Canvas/student/nextPageBtn').opacity = 0;
     },
 
@@ -67,13 +61,14 @@ cc.Class({
             var nextNode = cc.find('Canvas/student/cardList/' + nextCard);
             nextNode.opacity = 255;
             nextNode.zIndex = 1;
+            if (window.nova && window.nova.toggleCard && self.isTeacher) window.nova.toggleCard("nextPageBtn", false);
             disB();
 
             function disB() {
                 canActive = self.canNextActiveCard();
                 if (!canActive) {
                     self.node.opacity = 0;
-                } else {
+                } else if (self.isTeacher) {
                     cc.find('Canvas/student/upPageBtn').opacity = 255;
                 }
             }
@@ -98,13 +93,14 @@ cc.Class({
             var upNode = cc.find('Canvas/student/cardList/' + upCard);
             upNode.opacity = 255;
             upNode.zIndex = 1;
+            if (window.nova && window.nova.toggleCard && self.isTeacher) window.nova.toggleCard("upPageBtn", false);
             disB();
 
             function disB() {
                 canActive = self.canUpActiveCard();
                 if (!canActive) {
                     self.node.opacity = 0;
-                } else {
+                } else if (self.isTeacher) {
                     cc.find('Canvas/student/nextPageBtn').opacity = 255;
                 }
             }

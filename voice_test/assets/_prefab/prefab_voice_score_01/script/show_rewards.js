@@ -51,6 +51,8 @@ cc.Class({
     showAnim: function() {
         console.log(2);
         var self = this;
+        if (!self.animNode) return;
+        if (!self.animNode.getComponent('anim')) return;
         self.animNode.getComponent('anim').showAnim();
     }
 
