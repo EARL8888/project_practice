@@ -18,6 +18,7 @@ cc.Class({
         // cursor pointer
         self.node.on(cc.Node.EventType.MOUSE_ENTER, function(event) {
             cc._canvas.style.cursor = 'pointer';
+            self.node.style.cursor = 'pointer';
         });
         self.node.on(cc.Node.EventType.MOUSE_LEAVE, function(event) {
             cc._canvas.style.cursor = 'default';
@@ -28,9 +29,9 @@ cc.Class({
             var nodeName = self.node.name;
             if (!nodeName) return;
             if (nodeName == "nextPageBtn") {
-                self.nextPageBtn();
+                self.nextPageBtn("");
             } else if (nodeName == "upPageBtn") {
-                self.upPageBtn();
+                self.upPageBtn("");
             }
         });
     },
@@ -41,7 +42,15 @@ cc.Class({
 
     initBtn: function() {
         var self = this;
-        if (self.cards && self.cards.length < 2) cc.find('Canvas/student/nextPageBtn').opacity = 0;
+        var upPageBtnNode = cc.find('Canvas/student/upPageBtn');
+        var nextPageBtnNode = cc.find('Canvas/student/nextPageBtn');
+        if (!upPageBtnNode || !nextPageBtnNode) return;
+        upPageBtnNode.opacity = 0;
+        upPageBtnNode.zIndex = 0;
+        if (self.cards && self.cards.length < 2 || !self.isTeacher) {
+            upPageBtnNode.opacity = 0;
+            upPageBtnNode.zIndex = 0;
+        }
     },
 
     // 下一页
@@ -68,6 +77,7 @@ cc.Class({
                 canActive = self.canNextActiveCard();
                 if (!canActive) {
                     self.node.opacity = 0;
+                    self.node.zIndex = 0;
                 } else if (self.isTeacher) {
                     cc.find('Canvas/student/upPageBtn').opacity = 255;
                 }
@@ -100,6 +110,7 @@ cc.Class({
                 canActive = self.canUpActiveCard();
                 if (!canActive) {
                     self.node.opacity = 0;
+                    self.node.zIndex = 0;
                 } else if (self.isTeacher) {
                     cc.find('Canvas/student/nextPageBtn').opacity = 255;
                 }

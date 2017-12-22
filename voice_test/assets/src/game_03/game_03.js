@@ -1,5 +1,5 @@
 module.exports = {
-    "name": "game_02",
+    "name": "game_03",
     "elements": [{
         "name": "rabbit",
         "hide": false,

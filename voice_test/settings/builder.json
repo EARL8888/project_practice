@@ -1,14 +1,14 @@
 {
   "appKey": "",
   "appSecret": "",
+  "encryptJs": true,
   "excludeScenes": [],
   "includeAnySDK": false,
   "includeSDKBox": false,
-  "includeSdk": [
-    "anysdk"
-  ],
   "inlineSpriteFrames": true,
   "inlineSpriteFrames_native": true,
+  "jailbreakPlatform": false,
+  "md5Cache": false,
   "mergeStartScene": false,
   "oauthLoginServer": "",
   "optimizeHotUpdate": false,
@@ -23,5 +23,6 @@
   "renderMode": "1",
   "startScene": "6282c6dc-b246-4615-b496-673d3fc10deb",
   "title": "9",
-  "webOrientation": "auto"
+  "webOrientation": "auto",
+  "xxteaKey": "837f40df-0a44-4b"
 }
