@@ -120,7 +120,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "_teacher",
+    "_name": "_teacher_drag",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
