@@ -1,3 +1,7 @@
+/**
+ * [description:显示开始游戏倒计时]
+ * [version:V1.0.0]
+ */
 cc.Class({
     extends: cc.Component,
 
@@ -38,8 +42,6 @@ cc.Class({
         // bind
         self.node.on(cc.Node.EventType.TOUCH_END, function() {
             self.stopOtherAnim();
-            // 禁止学生端事件点透
-            if (cc.find('Canvas/student')) cc.find('Canvas/student').addComponent(cc.Button);
             var countdown = window.localStorage.getItem('countdown');
             if (!countdown || countdown == 1) {
                 // show anim

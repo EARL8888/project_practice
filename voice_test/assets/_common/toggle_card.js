@@ -1,9 +1,11 @@
+/**
+ * [description:切换卡片模板]
+ * [version:V1.0.0]
+ */
 cc.Class({
     extends: cc.Component,
 
     properties: {},
-
-    // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
         var self = this;

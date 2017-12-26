@@ -1,10 +1,13 @@
+/**
+ * [description:奖励显示]
+ * [version:V1.0.0]
+ */
 cc.Class({
     extends: cc.Component,
-
     properties: {
         animNode: {
             default: null,
-            type: cc.Node,
+            type: cc.Node
         }
     },
 
@@ -37,9 +40,6 @@ cc.Class({
                 if (window.nova && window.nova.teacherRewards) window.nova.teacherRewards(self.animNode.name);
             }
         });
-
-        // 禁止学生端事件点透
-        if (cc.find('Canvas/student')) cc.find('Canvas/student').addComponent(cc.Button);
     },
 
 
@@ -52,7 +52,6 @@ cc.Class({
     },
 
     showAnim: function() {
-        console.log(2);
         var self = this;
         if (!self.animNode) return;
         if (!self.animNode.getComponent('anim')) return;
