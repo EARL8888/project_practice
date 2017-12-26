@@ -31,10 +31,7 @@ cc.Class({
 
         // cursor pointer
         self.node.on(cc.Node.EventType.MOUSE_ENTER, function(event) {
-            var timer = setInterval(function() {
-                cc._canvas.style.cursor = 'pointer';
-                clearInterval(timer);
-            }, 100);
+             cc._canvas.style.cursor = 'pointer';
         });
         self.node.on(cc.Node.EventType.MOUSE_LEAVE, function(event) {
             cc._canvas.style.cursor = 'default';

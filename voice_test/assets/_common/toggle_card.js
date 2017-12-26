@@ -15,14 +15,16 @@ cc.Class({
         self.initBtn();
     },
 
+    lateUpdate() {
+        var self = this;
+        self.initBtn();
+    },
+
     initEventBtn: function() {
         var self = this;
         // cursor pointer
         self.node.on(cc.Node.EventType.MOUSE_ENTER, function(event) {
-            var timer = setInterval(function() {
-                cc._canvas.style.cursor = 'pointer';
-                clearInterval(timer);
-            }, 100);
+            cc._canvas.style.cursor = 'pointer';
         });
         self.node.on(cc.Node.EventType.MOUSE_LEAVE, function(event) {
             cc._canvas.style.cursor = 'default';
@@ -48,6 +50,10 @@ cc.Class({
         var self = this;
         var upPageBtnNode = cc.find('Canvas/student/upPageBtn');
         var nextPageBtnNode = cc.find('Canvas/student/nextPageBtn');
+        /**
+         * [if 判断是学生还是老师端，控制左右按钮显隐]
+         * @param  {[type]} !self.isTeacher
+         */
         if (!self.isTeacher) {
             nextPageBtnNode.opacity = 0;
             nextPageBtnNode.zIndex = 0;
@@ -56,39 +62,37 @@ cc.Class({
         }
     },
 
-    // 下一页
     nextPageBtn: function() {
         var self = this;
         var activeCard = self.getNodeName();
         if (activeCard && self.cards.length) {
             var nextCard = self.getNextCard(activeCard, self.cards);
             if (!nextCard) return;
-            var canActive = null;
             var currentNode = cc.find('Canvas/student/cardList/' + activeCard);
-            currentNode.opacity = 0;
             var nextNode = cc.find('Canvas/student/cardList/' + nextCard);
-            nextNode.opacity = 255;
-            nextNode.zIndex = 1;
+            self.setBtn(currentNode, nextNode);
             if (window.nova && window.nova.toggleCard && self.isTeacher) window.nova.toggleCard("nextPageBtn", false);
         }
     },
 
-    //上一页
     upPageBtn: function() {
         var self = this;
         var activeCard = self.getNodeName();
         if (activeCard && self.cards.length) {
             var upCard = self.getUpCard(activeCard, self.cards);
             if (!upCard) return;
-
-            var canActive = null;
             var currentNode = cc.find('Canvas/student/cardList/' + activeCard);
-            currentNode.opacity = 0;
             var upNode = cc.find('Canvas/student/cardList/' + upCard);
-            upNode.opacity = 255;
-            upNode.zIndex = 1;
+            self.setBtn(currentNode, upNode);
             if (window.nova && window.nova.toggleCard && self.isTeacher) window.nova.toggleCard("upPageBtn", false);
         }
+    },
+
+    setBtn(currentNode, node) {
+        if (!currentNode && !node) return;
+        currentNode.opacity = 0;
+        node.opacity = 255;
+        node.zIndex = 1;
     },
 
     getCards: function() {
@@ -141,6 +145,7 @@ cc.Class({
             if (cards[i] == activeCard) return i == cards.length - 1 ? cards[0] : cards[i + 1];
         }
     },
+
     getUpCard: function(activeCard, cards) {
         for (var i = 0; i < cards.length; i++) {
             if (cards[i] == activeCard) return i == 0 ? cards[cards.length - 1] : cards[i - 1];

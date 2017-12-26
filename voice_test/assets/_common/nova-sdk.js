@@ -2727,58 +2727,20 @@ window.onerror = function(errorMessage, scriptURI, lineNumber,columnNumber,error
 }
 
 /**
- * 语文倒计时
+ * [teacherRewards 语文奖励]
+ * @param  {[type]} nodeName [动画节点]
  */
-window.nova.teacherStart_02 = function() {
+window.nova.teacherRewards = function(nodeName) {
     if (!window.nova.isTeacher()) return;
-
     // send msg
-    window.WCRDocSDK.sendMessage('nova.teacher.start.02', {});
-};
-
-/**
- * 语文倒计时
- */
-window.nova.teacherStart_02 = function() {
-    if (!window.nova.isTeacher()) return;
-
-    // send msg
-    window.WCRDocSDK.sendMessage('nova.teacher.start.02', {});
-};
-
-//语文切换卡片
-window.nova.toggleCard = function(marking, isInitialization) {
-
-    if (!window.nova.isTeacher()) return;
-
-    if (cc.find('Canvas/Sprite')) cc.find('Canvas/Sprite').destroy();
-
-    // record the time of change card
-    window.novaUtil.startTimeS = window.novaUtil.timerS;
-
-    // send msg
-    window.WCRDocSDK.sendMessage('nova.teacher.toggle.card', {
-        marking: marking,
-        isInitialization: isInitialization
+    window.WCRDocSDK.sendMessage('nova.teacher.rewards', {
+        nodeName: nodeName
     });
-
-    if (!isInitialization) {
-        // sync status
-        window.nova.syncStatus();
-        // clear
-        window.nova.set(window.nova.key() + '_student', '');
-    }
 };
 
-/**
- * 语文倒计时动效
- */
-window.novaUtil.showTimeOut_02 = function() {
-    var _timeout = cc.find('Canvas/prefab_06_timeout');
-    if (!_timeout) return;
-
-    timeoutRotateAnimation_02(_timeout);
-    timeoutCountDown_02();
+//语文奖励
+function handlerTeacherStartRewards(body) {
+    window.novaUtil.showRewards(body);
 };
 
 /**
@@ -2789,7 +2751,45 @@ window.novaUtil.showRewards = function(body) {
     showRewardsAnimation(body);
 };
 
+/**
+ * [showRewardsAnimation 显示奖励动画]
+ * @param  {[type]} body [动画节点]
+ */
+function showRewardsAnimation(body) {
+    var node = cc.find('Canvas/prefab_voice_score_01/' + body.nodeName);
+    if (!node) return;
+    if (!node.getComponent('anim')) return;
+    node.getComponent('anim').showAnim();
+}
+
+/**
+ * 语文倒计时
+ */
+window.nova.teacherStart_02 = function() {
+    if (!window.nova.isTeacher()) return;
+    // send msg
+    window.WCRDocSDK.sendMessage('nova.teacher.start.02', {});
+};
+
 //语文倒计时
+function handlerTeacherStartTimeOut_02() {
+    window.novaUtil.showTimeOut_02();
+};
+
+/**
+ * 语文倒计时动效
+ */
+window.novaUtil.showTimeOut_02 = function() {
+    var _timeout = cc.find('Canvas/prefab_06_timeout');
+    if (!_timeout) return;
+    timeoutRotateAnimation_02(_timeout);
+    timeoutCountDown_02();
+};
+
+/**
+ * 语文倒计时
+ * @param  {[type]} node [动画节点]
+ */
 function timeoutRotateAnimation_02(node) {
     node.opacity = 255;
     cc.audioEngine.play(node.getComponent('prefab_06_timeout').timeOutAudio, false, 1);
@@ -2799,7 +2799,6 @@ function timeoutRotateAnimation_02(node) {
         cc.find('mask1/r', node).runAction(cc.rotateBy(1.5, -180));
     }, 1500);
 }
-
 function timeoutCountDown_02() {
     var i = 3;
     timeoutAnimFn_02(i);
@@ -2817,7 +2816,6 @@ function timeoutCountDown_02() {
         timeoutAnimFn_02(i);
     }, 1000);
 }
-
 function timeoutAnimFn_02(i) {
     var anim1 = cc.scaleTo(0.5, 1);
     var anim2 = cc.scaleTo(0.5, 1);
@@ -2832,17 +2830,34 @@ function timeoutAnimFn_02(i) {
     }
 }
 
-//语文倒计时
-function handlerTeacherStartTimeOut_02() {
-    window.novaUtil.showTimeOut_02();
+/**
+ * 语文切换卡片
+ * @param  {[type]}  marking          [按钮标记（nextPageBtn、upPageBtn）]
+ * @param  {Boolean} isInitialization [description]
+ */
+window.nova.toggleCard = function(marking, isInitialization) {
+    if (!window.nova.isTeacher()) return;
+    if (cc.find('Canvas/Sprite')) cc.find('Canvas/Sprite').destroy();
+    // record the time of change card
+    window.novaUtil.startTimeS = window.novaUtil.timerS;
+    // send msg
+    window.WCRDocSDK.sendMessage('nova.teacher.toggle.card', {
+        marking: marking,
+        isInitialization: isInitialization
+    });
+    if (!isInitialization) {
+        // sync status
+        window.nova.syncStatus();
+        // clear
+        window.nova.set(window.nova.key() + '_student', '');
+    }
 };
 
-//语文奖励
-function handlerTeacherStartRewards(body) {
-    window.novaUtil.showRewards(body);
-};
-
-//语文学生端接受卡片切换
+/**
+ * 语文学生端接受卡片切换
+ * @param  {[type]} body [按钮标记（nextPageBtn、upPageBtn）]
+ * @return {[type]}      [description]
+ */
 function handlerTeacherToggleCard(body) {
     var marking = body.marking;
     var isInitialization = body.isInitialization;

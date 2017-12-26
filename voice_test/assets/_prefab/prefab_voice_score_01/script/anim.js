@@ -13,8 +13,6 @@ cc.Class({
         }
     },
 
-    // LIFE-CYCLE CALLBACKS:
-
     onLoad() {
         var self = this;
         self.node.opacity = 0;
