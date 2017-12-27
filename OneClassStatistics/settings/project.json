@@ -2,9 +2,9 @@
   "cocos-analytics": {
     "appID": "641955356",
     "appSecret": "1873cce3898d20054a82c004e292f2ac",
-    "channel": "1.0",
+    "channel": "12.27",
     "enable": true,
-    "version": "1.0"
+    "version": "12.27"
   },
   "collision-matrix": [
     [
@@ -25,6 +25,5 @@
     "width": 960
   },
   "use-customize-simulator": false,
-  "use-project-simulator-setting": false,
-  "start-scene": "current"
+  "use-project-simulator-setting": false
 }

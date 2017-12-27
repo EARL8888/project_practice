@@ -10,7 +10,8 @@ cc.Class({
     init: function() {
         var self = this;
         var sceneName = cc.director.getScene().name;
-        // cocosAnalytics.CAAccount.loginStart();
+        cocosAnalytics.CAAccount.loginStart();
+        cocosAnalytics.CAAccount.loginSuccess({ 'userID': '101' });
         cocosAnalytics.onPause(true);
         self.gameStart(sceneName); // 关卡开始
     },
@@ -37,4 +38,5 @@ cc.Class({
             level: self.sceneName
         })
     }
+
 });
