@@ -13,6 +13,7 @@ cc.Class({
         cocosAnalytics.CAAccount.loginStart();
         cocosAnalytics.CAAccount.loginSuccess({ 'userID': '101' });
         cocosAnalytics.onPause(true);
+        cocosAnalytics.enableDebug(true);
         self.gameStart(sceneName); // 关卡开始
     },
 
