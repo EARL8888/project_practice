@@ -10,8 +10,10 @@ cc.Class({
     init: function() {
         var self = this;
         var sceneName = cc.director.getScene().name;
+        var userId = window.WCRDocSDK.getUserId();
+        if (!userId) userId = '1';
         cocosAnalytics.CAAccount.loginStart();
-        cocosAnalytics.CAAccount.loginSuccess({ 'userID': '101'});
+        cocosAnalytics.CAAccount.loginSuccess({ 'userID': userId });
         cocosAnalytics.onPause(true);
         self.gameStart(sceneName); // 关卡开始
 
