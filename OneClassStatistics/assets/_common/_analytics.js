@@ -36,6 +36,7 @@ cc.Class({
     gameStart: function(sceneName) {
         var self = this;
         self.sceneName = sceneName;
+        cocosAnalytics.CAAccount.setLevel(self.sceneName);
         cocosAnalytics.CALevels.begin({
             level: self.sceneName
         })
