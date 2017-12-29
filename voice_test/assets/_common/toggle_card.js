@@ -5,7 +5,24 @@
 cc.Class({
     extends: cc.Component,
 
-    properties: {},
+    properties: {
+        nextNormalBtn: {
+            type: cc.SpriteFrame,
+            default: null
+        },
+        nextHoverBtn: {
+            type: cc.SpriteFrame,
+            default: null
+        },
+        upNormalBtn: {
+            type: cc.SpriteFrame,
+            default: null
+        },
+        upHoverBtn: {
+            type: cc.SpriteFrame,
+            default: null
+        }
+    },
 
     onLoad() {
         var self = this;
@@ -25,9 +42,21 @@ cc.Class({
         // cursor pointer
         self.node.on(cc.Node.EventType.MOUSE_ENTER, function(event) {
             cc._canvas.style.cursor = 'pointer';
+            var nodeName = self.node.name;
+            if(nodeName == "nextPageBtn"){
+                 self.node.getComponent(cc.Sprite).spriteFrame = self.nextHoverBtn;
+            } else if (nodeName == "upPageBtn"){
+                self.node.getComponent(cc.Sprite).spriteFrame = self.upHoverBtn;
+            }
         });
         self.node.on(cc.Node.EventType.MOUSE_LEAVE, function(event) {
             cc._canvas.style.cursor = 'default';
+            var nodeName = self.node.name;
+            if(nodeName == "nextPageBtn"){
+                 self.node.getComponent(cc.Sprite).spriteFrame = self.nextNormalBtn;
+            } else if (nodeName == "upPageBtn"){
+                self.node.getComponent(cc.Sprite).spriteFrame = self.upNormalBtn;
+            }
         });
 
         // bind events

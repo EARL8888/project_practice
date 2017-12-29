@@ -18,6 +18,14 @@ cc.Class({
             default: null,
             type: cc.Node,
         },
+        normalBtn: {
+            type: cc.SpriteFrame,
+            default: null
+        },
+        hoverBtn: {
+            type: cc.SpriteFrame,
+            default: null
+        },
     },
 
     onLoad: function() {
@@ -32,9 +40,11 @@ cc.Class({
         // cursor pointer
         self.node.on(cc.Node.EventType.MOUSE_ENTER, function(event) {
              cc._canvas.style.cursor = 'pointer';
+             self.node.getComponent(cc.Sprite).spriteFrame = self.hoverBtn;
         });
         self.node.on(cc.Node.EventType.MOUSE_LEAVE, function(event) {
             cc._canvas.style.cursor = 'default';
+            self.node.getComponent(cc.Sprite).spriteFrame = self.normalBtn;
         });
         // bind
         self.node.on(cc.Node.EventType.TOUCH_END, function() {
