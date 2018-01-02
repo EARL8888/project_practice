@@ -2756,7 +2756,7 @@ window.novaUtil.showRewards = function(body) {
  * @param  {[type]} body [动画节点]
  */
 function showRewardsAnimation(body) {
-    var node = cc.find('Canvas/prefab_voice_score_01/' + body.nodeName);
+    var node = cc.find('Canvas/prefab_voice_score_01/bones/' + body.nodeName);
     if (!node) return;
     if (!node.getComponent('anim')) return;
     node.getComponent('anim').showAnim();
@@ -2765,21 +2765,32 @@ function showRewardsAnimation(body) {
 /**
  * 语文倒计时
  */
-window.nova.teacherStart_02 = function() {
+window.nova.teacherStart_02 = function(nodeName) {
     if (!window.nova.isTeacher()) return;
     // send msg
-    window.WCRDocSDK.sendMessage('nova.teacher.start.02', {});
+    window.WCRDocSDK.sendMessage('nova.teacher.start.02', {
+        nodeName: nodeName
+    });
 };
 
 //语文倒计时
-function handlerTeacherStartTimeOut_02() {
-    window.novaUtil.showTimeOut_02();
+function handlerTeacherStartTimeOut_02(nodeName) {
+    window.novaUtil.showTimeOut_02(nodeName);
 };
 
 /**
  * 语文倒计时动效
  */
-window.novaUtil.showTimeOut_02 = function() {
+window.novaUtil.showTimeOut_02 = function(nodeName) {
+    console.log(nodeName);
+    if(nodeName.nodeName){
+        var node = cc.find('Canvas/prefab_voice_score_01/' + nodeName.nodeName);
+    }else{
+        var node = cc.find('Canvas/prefab_voice_score_01/' + nodeName);
+    }
+    if (!node) return;
+    if (!node.getComponent('countdown')) return;
+    node.getComponent('countdown').stopOtherAnim();
     var _timeout = cc.find('Canvas/prefab_06_timeout');
     if (!_timeout) return;
     timeoutRotateAnimation_02(_timeout);

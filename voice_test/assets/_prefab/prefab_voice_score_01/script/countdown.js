@@ -6,18 +6,6 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        anim_01: {
-            default: null,
-            type: cc.Node,
-        },
-        anim_02: {
-            default: null,
-            type: cc.Node,
-        },
-        anim_03: {
-            default: null,
-            type: cc.Node,
-        },
         normalBtn: {
             type: cc.SpriteFrame,
             default: null
@@ -39,8 +27,8 @@ cc.Class({
 
         // cursor pointer
         self.node.on(cc.Node.EventType.MOUSE_ENTER, function(event) {
-             cc._canvas.style.cursor = 'pointer';
-             self.node.getComponent(cc.Sprite).spriteFrame = self.hoverBtn;
+            cc._canvas.style.cursor = 'pointer';
+            self.node.getComponent(cc.Sprite).spriteFrame = self.hoverBtn;
         });
         self.node.on(cc.Node.EventType.MOUSE_LEAVE, function(event) {
             cc._canvas.style.cursor = 'default';
@@ -52,10 +40,10 @@ cc.Class({
             var countdown = window.localStorage.getItem('countdown');
             if (!countdown || countdown == 1) {
                 // show anim
-                window.novaUtil.showTimeOut_02();
+                window.novaUtil.showTimeOut_02(self.node.name);
 
                 // teacher start
-                if (window.nova && window.nova.teacherStart) window.nova.teacherStart_02();
+                if (window.nova && window.nova.teacherStart) window.nova.teacherStart_02(self.node.name);
 
                 // set auth
                 if (window.nova && window.nova.teacherSetAuth) window.nova.teacherSetAuth('true');
@@ -66,9 +54,8 @@ cc.Class({
     },
 
     stopOtherAnim: function() {
-        this.anim_01.getComponent('anim').stopAnim();
-        this.anim_02.getComponent('anim').stopAnim();
-        this.anim_03.getComponent('anim').stopAnim();
+        var self = this;
+        cc.find('Canvas/prefab_voice_score_01/bones').opacity = 0;
     },
 
     hideButton: function() {

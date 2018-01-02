@@ -30,6 +30,7 @@ cc.Class({
 
         // bind
         self.node.on(cc.Node.EventType.TOUCH_END, function() {
+            self.stopAnim();
             var rewards_btn = window.localStorage.getItem('rewards_btn');
             if (!rewards_btn || rewards_btn == 1) {
                 window.localStorage.setItem('rewards_btn', null);
@@ -44,6 +45,13 @@ cc.Class({
         if (!isTeacher) {
             this.node.opacity = 0;
         }
+    },
+
+    stopAnim: function() {
+        var self = this;
+        if (!self.animNode) return;
+        if (!self.animNode.getComponent('anim')) return;
+        self.animNode.getComponent('anim').stopAnim();
     },
 
     showAnim: function() {
