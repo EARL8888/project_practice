@@ -1,14 +1,14 @@
 {
   "ver": "1.0.0",
-  "uuid": "e7f6242e-e4e1-44d4-9050-8735defa2290",
+  "uuid": "2f376af7-30f1-4626-b2a4-f4235076d604",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "subMetas": {
-    "角色1_5_tex": {
+    "yikexing_tex": {
       "ver": "1.0.3",
-      "uuid": "9d43e912-6a97-4f72-a6a4-e6c33ae92a44",
-      "rawTextureUuid": "e7f6242e-e4e1-44d4-9050-8735defa2290",
+      "uuid": "0aa15567-ed63-48e2-8c92-dd49038093aa",
+      "rawTextureUuid": "2f376af7-30f1-4626-b2a4-f4235076d604",
       "trimType": "custom",
       "trimThreshold": 1,
       "rotated": false,

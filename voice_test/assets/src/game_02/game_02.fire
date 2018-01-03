@@ -17998,17 +17998,17 @@
       "__id__": 557
     },
     "_enabled": true,
-    "_armatureName": "Sprite",
-    "_animationName": "Sprite",
+    "_armatureName": "armatureName",
+    "_animationName": "",
     "playTimes": -1,
     "_N$dragonAsset": {
-      "__uuid__": "a60ba5ba-5abd-4df5-bcdc-871286ea9e18"
+      "__uuid__": "9d0ef9e4-8afd-4692-ae43-bb6bd3fd4c82"
     },
     "_N$dragonAtlasAsset": {
-      "__uuid__": "714a1bac-f61b-459f-bccc-4d7763a2a466"
+      "__uuid__": "269215d9-73da-4b34-9c5d-8cbbd5f824d2"
     },
     "_N$_defaultArmatureIndex": 0,
-    "_N$_animationIndex": 1,
+    "_N$_animationIndex": 0,
     "_N$timeScale": 1,
     "_N$debugBones": false
   },
@@ -18021,7 +18021,7 @@
     },
     "_enabled": true,
     "clickAudio": {
-      "__uuid__": "1f353474-a79a-419c-a85b-81d4f1332560"
+      "__uuid__": "68d56a37-3c99-489d-bb82-8cd96e52c0d1"
     }
   },
   {
@@ -18101,16 +18101,16 @@
     },
     "_enabled": true,
     "_armatureName": "armatureName",
-    "_animationName": "newAnimation",
+    "_animationName": "",
     "playTimes": -1,
     "_N$dragonAsset": {
-      "__uuid__": "e1c09d76-4077-4506-99ef-afa7c99793c5"
+      "__uuid__": "d43b3bb9-c13f-4a65-bc3e-a50f35b858a7"
     },
     "_N$dragonAtlasAsset": {
-      "__uuid__": "5abe4622-8ed6-4109-8ff9-9098a0428b25"
+      "__uuid__": "46e23cda-1b9d-40c8-8f5a-72510bb4850d"
     },
     "_N$_defaultArmatureIndex": 0,
-    "_N$_animationIndex": 1,
+    "_N$_animationIndex": 0,
     "_N$timeScale": 1,
     "_N$debugBones": false
   },
@@ -18123,7 +18123,7 @@
     },
     "_enabled": true,
     "clickAudio": {
-      "__uuid__": "1f353474-a79a-419c-a85b-81d4f1332560"
+      "__uuid__": "68d56a37-3c99-489d-bb82-8cd96e52c0d1"
     }
   },
   {
@@ -18156,17 +18156,17 @@
       "__id__": 555
     },
     "_enabled": true,
-    "_armatureName": "MovieClip",
-    "_animationName": "newAnimation",
+    "_armatureName": "armatureName",
+    "_animationName": "",
     "playTimes": -1,
     "_N$dragonAsset": {
-      "__uuid__": "d7778b93-f223-4c17-94f1-5e0ff95a3bab"
+      "__uuid__": "b1f65956-8ba8-4b5a-9aec-a654a0f2ae52"
     },
     "_N$dragonAtlasAsset": {
-      "__uuid__": "b161ce4c-ae9c-488c-ab30-534ece6eb80c"
+      "__uuid__": "ea079e03-3f32-4df4-9acd-3e01121c2393"
     },
     "_N$_defaultArmatureIndex": 0,
-    "_N$_animationIndex": 1,
+    "_N$_animationIndex": 0,
     "_N$timeScale": 1,
     "_N$debugBones": false
   },
@@ -18179,7 +18179,7 @@
     },
     "_enabled": true,
     "clickAudio": {
-      "__uuid__": "1f353474-a79a-419c-a85b-81d4f1332560"
+      "__uuid__": "68d56a37-3c99-489d-bb82-8cd96e52c0d1"
     }
   },
   {

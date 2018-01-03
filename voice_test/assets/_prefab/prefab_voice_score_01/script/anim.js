@@ -31,7 +31,7 @@ cc.Class({
         setTimeout(function() {
             selfNode.opacity = 0;
             window.localStorage.setItem('rewards_btn', 1);
-        }, 1500);
+        }, 3000);
     },
 
     stopAnim: function() {
