@@ -28,13 +28,20 @@ cc.Class({
         var self = this;
         self.isTeacher = self.isTeacherMothed();
         self.cards = self.getCards();
+        self.initCards(self.cards);
         self.initEventBtn();
-        self.initBtn();
     },
 
     lateUpdate() {
         var self = this;
         self.initBtn();
+    },
+
+    initCards: function(cards) {
+        var _path = "Canvas/student/cardList/";
+        for (var i = cards.length - 1; i >= 0; i--) {
+            i == 0 ? cc.find(_path + cards[i]).opacity = 255 : cc.find(_path + cards[i]).opacity = 0;
+        }
     },
 
     initEventBtn: function() {
@@ -43,18 +50,18 @@ cc.Class({
         self.node.on(cc.Node.EventType.MOUSE_ENTER, function(event) {
             cc._canvas.style.cursor = 'pointer';
             var nodeName = self.node.name;
-            if(nodeName == "nextPageBtn"){
-                 self.node.getComponent(cc.Sprite).spriteFrame = self.nextHoverBtn;
-            } else if (nodeName == "upPageBtn"){
+            if (nodeName == "nextPageBtn") {
+                self.node.getComponent(cc.Sprite).spriteFrame = self.nextHoverBtn;
+            } else if (nodeName == "upPageBtn") {
                 self.node.getComponent(cc.Sprite).spriteFrame = self.upHoverBtn;
             }
         });
         self.node.on(cc.Node.EventType.MOUSE_LEAVE, function(event) {
             cc._canvas.style.cursor = 'default';
             var nodeName = self.node.name;
-            if(nodeName == "nextPageBtn"){
-                 self.node.getComponent(cc.Sprite).spriteFrame = self.nextNormalBtn;
-            } else if (nodeName == "upPageBtn"){
+            if (nodeName == "nextPageBtn") {
+                self.node.getComponent(cc.Sprite).spriteFrame = self.nextNormalBtn;
+            } else if (nodeName == "upPageBtn") {
                 self.node.getComponent(cc.Sprite).spriteFrame = self.upNormalBtn;
             }
         });
