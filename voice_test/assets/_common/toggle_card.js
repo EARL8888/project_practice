@@ -28,13 +28,25 @@ cc.Class({
         var self = this;
         self.isTeacher = self.isTeacherMothed();
         self.cards = self.getCards();
-        self.initEventBtn();
-        self.initBtn();
+        self.initCards(self.cards);
     },
 
     lateUpdate() {
         var self = this;
         self.initBtn();
+    },
+
+    initCards: function(cards) {
+        var self = this;
+        var _path = "Canvas/student/cardList/";
+        for (var i = cards.length - 1; i >= 0; i--) {
+            i == 0 ? cc.find(_path + cards[i]).opacity = 255 : cc.find(_path + cards[i]).opacity = 0;
+        }
+        if (!cards || cards.length < 2) {
+            self.node.opacity = 0;
+        } else {
+            self.initEventBtn();
+        }
     },
 
     initEventBtn: function() {
@@ -43,18 +55,18 @@ cc.Class({
         self.node.on(cc.Node.EventType.MOUSE_ENTER, function(event) {
             cc._canvas.style.cursor = 'pointer';
             var nodeName = self.node.name;
-            if(nodeName == "nextPageBtn"){
-                 self.node.getComponent(cc.Sprite).spriteFrame = self.nextHoverBtn;
-            } else if (nodeName == "upPageBtn"){
+            if (nodeName == "nextPageBtn") {
+                self.node.getComponent(cc.Sprite).spriteFrame = self.nextHoverBtn;
+            } else if (nodeName == "upPageBtn") {
                 self.node.getComponent(cc.Sprite).spriteFrame = self.upHoverBtn;
             }
         });
         self.node.on(cc.Node.EventType.MOUSE_LEAVE, function(event) {
             cc._canvas.style.cursor = 'default';
             var nodeName = self.node.name;
-            if(nodeName == "nextPageBtn"){
-                 self.node.getComponent(cc.Sprite).spriteFrame = self.nextNormalBtn;
-            } else if (nodeName == "upPageBtn"){
+            if (nodeName == "nextPageBtn") {
+                self.node.getComponent(cc.Sprite).spriteFrame = self.nextNormalBtn;
+            } else if (nodeName == "upPageBtn") {
                 self.node.getComponent(cc.Sprite).spriteFrame = self.upNormalBtn;
             }
         });
@@ -79,6 +91,12 @@ cc.Class({
         var self = this;
         var upPageBtnNode = cc.find('Canvas/student/upPageBtn');
         var nextPageBtnNode = cc.find('Canvas/student/nextPageBtn');
+        if (!upPageBtnNode && !nextPageBtnNode) {
+             upPageBtnNode = cc.find('Canvas/prefab_voice_score_01/upPageBtn');
+             nextPageBtnNode = cc.find('Canvas/prefab_voice_score_01/nextPageBtn');
+        }
+
+        if (!upPageBtnNode && !nextPageBtnNode) return;
         /**
          * [if 判断是学生还是老师端，控制左右按钮显隐]
          * @param  {[type]} !self.isTeacher

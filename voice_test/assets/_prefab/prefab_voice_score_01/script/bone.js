@@ -23,6 +23,7 @@ cc.Class({
         var selfNode = self.node;
         self.stopAllAnim()
         cc.find('Canvas/prefab_voice_score_01/bones').opacity = 255;
+        cc.find('Canvas/prefab_voice_score_01/bones/zhezhao').opacity = 255;
         selfNode.opacity = 255;
         var game = selfNode.getComponent(dragonBones.ArmatureDisplay);
         cc.audioEngine.playEffect(self.clickAudio, false);
@@ -30,6 +31,8 @@ cc.Class({
 
         setTimeout(function() {
             selfNode.opacity = 0;
+            cc.find('Canvas/prefab_voice_score_01/bones').opacity = 0;
+            cc.find('Canvas/prefab_voice_score_01/bones/zhezhao').opacity = 0;
             window.localStorage.setItem('rewards_btn', 1);
         }, 3000);
     },

@@ -1433,7 +1433,9 @@ function receiveCoursewareMessage(content){
         if (content.msg == 'nova.teacher.rewards') handlerTeacherStartRewards(content.body);
         //语文上下页切换卡片
         if (content.msg == 'nova.teacher.toggle.card') handlerTeacherToggleCard(content.body);
-        
+        //语音话筒动效
+        if (content.msg == 'nova.teacher.voice.anim') handlervoiceAnimShowOrStop(content.body);
+
         // student
         if(content.msg == 'nova.student.answer') 					handlerStudentAnswer(content.body && content.body.body ? content.body.body : content.body);
         if (content.msg == 'nova.student.wrongAnswer') 				handlerStudentWrongAnswer(content.body && content.body.body ? content.body.body : content.body);
@@ -2758,8 +2760,8 @@ window.novaUtil.showRewards = function(body) {
 function showRewardsAnimation(body) {
     var node = cc.find('Canvas/prefab_voice_score_01/bones/' + body.nodeName);
     if (!node) return;
-    if (!node.getComponent('anim')) return;
-    node.getComponent('anim').showAnim();
+    if (!node.getComponent('bone')) return;
+    node.getComponent('bone').showAnim();
 }
 
 /**
@@ -2875,14 +2877,35 @@ function handlerTeacherToggleCard(body) {
     if (marking && !isInitialization) {
         if (marking == "nextPageBtn") {
             var node = cc.find('Canvas/student/nextPageBtn');
+            if (!node) node = cc.find('Canvas/prefab_voice_score_01/nextPageBtn');
             if (!node) return;
             if (!node.getComponent('toggle_card')) return;
             node.getComponent('toggle_card').nextPageBtn();
         } else if (marking == "upPageBtn") {
             var node = cc.find('Canvas/student/upPageBtn');
+            if (!node) node = cc.find('Canvas/prefab_voice_score_01/upPageBtn');
             if (!node) return;
             if (!node.getComponent('toggle_card')) return;
             node.getComponent('toggle_card').upPageBtn();
         }
     }
 };
+
+/**
+ * [teacherRewards 语文收音动效]
+ * @param  {[type]} nodeName [动画节点]
+ */
+window.nova.voiceAnimShowOrStop = function(nodeName) {
+    if (!window.nova.isTeacher()) return;
+    // send msg
+    window.WCRDocSDK.sendMessage('nova.teacher.voice.anim', {
+        nodeName: nodeName
+    });
+};
+
+function handlervoiceAnimShowOrStop(body){
+    var node = cc.find('Canvas/prefab_voice_score_01/' + body.nodeName);
+    if (!node) return;
+    if (!node.getComponent('voice_anim')) return;
+    node.getComponent('voice_anim').voiceAnimShowOrStop();
+}

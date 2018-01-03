@@ -30,10 +30,10 @@ cc.Class({
 
         // bind
         self.node.on(cc.Node.EventType.TOUCH_END, function() {
-            self.stopAnim();
             var rewards_btn = window.localStorage.getItem('rewards_btn');
-            if (!rewards_btn || rewards_btn == 1) {
+            if (rewards_btn && rewards_btn == 1) {
                 window.localStorage.setItem('rewards_btn', null);
+                self.stopAnim();
                 self.showAnim();
                 if (window.nova && window.nova.teacherRewards) window.nova.teacherRewards(self.animNode.name);
             }
@@ -50,15 +50,15 @@ cc.Class({
     stopAnim: function() {
         var self = this;
         if (!self.animNode) return;
-        if (!self.animNode.getComponent('anim')) return;
-        self.animNode.getComponent('anim').stopAnim();
+        if (!self.animNode.getComponent('bone')) return;
+        self.animNode.getComponent('bone').stopAnim();
     },
 
     showAnim: function() {
         var self = this;
         if (!self.animNode) return;
-        if (!self.animNode.getComponent('anim')) return;
-        self.animNode.getComponent('anim').showAnim();
+        if (!self.animNode.getComponent('bone')) return;
+        self.animNode.getComponent('bone').showAnim();
     }
 
 });
