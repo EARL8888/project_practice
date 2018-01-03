@@ -24,16 +24,14 @@ cc.Class({
         self.stopAllAnim()
         cc.find('Canvas/prefab_voice_score_01/bones').opacity = 255;
         selfNode.opacity = 255;
-        selfNode.scaleX = 1;
-        selfNode.scaleY = 1;
         var game = selfNode.getComponent(dragonBones.ArmatureDisplay);
         cc.audioEngine.playEffect(self.clickAudio, false);
-        game.playAnimation('newAnimation', 1);
+        game.playAnimation(game._animationName, 1);
 
         setTimeout(function() {
             selfNode.opacity = 0;
             window.localStorage.setItem('rewards_btn', 1);
-        }, 3000);
+        }, 1500);
     },
 
     stopAnim: function() {

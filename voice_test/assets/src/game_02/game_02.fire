@@ -17838,7 +17838,7 @@
       "__id__": 568
     },
     "_id": "08n/Ntc2FLdJFUbcBfB/n0",
-    "_opacity": 255,
+    "_opacity": 0,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
@@ -17955,7 +17955,7 @@
       "__id__": 560
     },
     "_id": "c5rGaGhG5NK6wUqWj6U4JE",
-    "_opacity": 255,
+    "_opacity": 0,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
@@ -17998,14 +17998,14 @@
       "__id__": 557
     },
     "_enabled": true,
-    "_armatureName": "MovieClip",
-    "_animationName": "newAnimation",
+    "_armatureName": "Sprite",
+    "_animationName": "Sprite",
     "playTimes": -1,
     "_N$dragonAsset": {
-      "__uuid__": "d7778b93-f223-4c17-94f1-5e0ff95a3bab"
+      "__uuid__": "a60ba5ba-5abd-4df5-bcdc-871286ea9e18"
     },
     "_N$dragonAtlasAsset": {
-      "__uuid__": "b161ce4c-ae9c-488c-ab30-534ece6eb80c"
+      "__uuid__": "714a1bac-f61b-459f-bccc-4d7763a2a466"
     },
     "_N$_defaultArmatureIndex": 0,
     "_N$_animationIndex": 1,
@@ -18057,7 +18057,7 @@
       "__id__": 564
     },
     "_id": "a44MtMB0VJibP76pFXOsUf",
-    "_opacity": 255,
+    "_opacity": 0,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
@@ -18100,14 +18100,14 @@
       "__id__": 561
     },
     "_enabled": true,
-    "_armatureName": "MovieClip",
+    "_armatureName": "armatureName",
     "_animationName": "newAnimation",
     "playTimes": -1,
     "_N$dragonAsset": {
-      "__uuid__": "d7778b93-f223-4c17-94f1-5e0ff95a3bab"
+      "__uuid__": "e1c09d76-4077-4506-99ef-afa7c99793c5"
     },
     "_N$dragonAtlasAsset": {
-      "__uuid__": "b161ce4c-ae9c-488c-ab30-534ece6eb80c"
+      "__uuid__": "5abe4622-8ed6-4109-8ff9-9098a0428b25"
     },
     "_N$_defaultArmatureIndex": 0,
     "_N$_animationIndex": 1,
