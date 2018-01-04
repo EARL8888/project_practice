@@ -39,15 +39,21 @@ cc.Class({
         var self = this;
         var voice_anim = window.localStorage.getItem('voice_anim');
         if (voice_anim == 1) {
-            self.getComponent(cc.Animation).stop();
+            self.getComponent(cc.Animation).stop("anim_01");
             window.localStorage.setItem('voice_anim', null);
         } else {
-            self.getComponent(cc.Animation).play();
+            self.getComponent(cc.Animation).play("anim_01");
             window.localStorage.setItem('voice_anim', 1);
         }
     },
 
+    voiceStopAnim: function() {
+        var self = this;
+        self.getComponent(cc.Animation).stop("anim_01");
+        window.localStorage.setItem('voice_anim', null);
+    },
+
     onDisable() {
         window.localStorage.setItem('voice_anim', null);
-    }
+    },
 });

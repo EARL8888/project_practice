@@ -2758,10 +2758,10 @@ window.novaUtil.showRewards = function(body) {
  * @param  {[type]} body [动画节点]
  */
 function showRewardsAnimation(body) {
-    var node = cc.find('Canvas/prefab_voice_score_01/bones/' + body.nodeName);
+    var node = cc.find('Canvas/prefab_voice_score_01/rewards_btn/' + body.nodeName);
     if (!node) return;
-    if (!node.getComponent('bone')) return;
-    node.getComponent('bone').showAnim();
+    if (!node.getComponent('show_rewards')) return;
+    node.getComponent('show_rewards').showAnim();
 }
 
 /**
