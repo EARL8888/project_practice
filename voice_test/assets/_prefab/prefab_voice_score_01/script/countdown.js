@@ -46,7 +46,7 @@ cc.Class({
                 if (window.nova && window.nova.teacherStart) window.nova.teacherStart_02(self.node.name);
 
                 // set auth
-                if (window.nova && window.nova.teacherSetAuth) window.nova.teacherSetAuth('true');
+                // if (window.nova && window.nova.teacherSetAuth) window.nova.teacherSetAuth('true');
                 window.localStorage.setItem('countdown', 0);
             }
 
