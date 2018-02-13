@@ -87,7 +87,6 @@ export default {
     display: block;
     color: #fff;
     font-size: 23px;
-    margin-top: 20px;
     margin-bottom: 10px;
 }
 

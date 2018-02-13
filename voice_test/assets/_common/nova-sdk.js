@@ -2793,6 +2793,7 @@ window.novaUtil.showTimeOut_02 = function(nodeName) {
     if (!node) return;
     if (!node.getComponent('countdown')) return;
     node.getComponent('countdown').stopOtherAnim();
+    node.getComponent('countdown').stopAnim_2();
     var _timeout = cc.find('Canvas/prefab_06_timeout');
     if (!_timeout) return;
     timeoutRotateAnimation_02(_timeout);

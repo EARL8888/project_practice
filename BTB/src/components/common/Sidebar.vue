@@ -81,4 +81,10 @@ export default {
     color: #fff;
 }
 
+.el-menu--horizontal.el-menu--dark .el-submenu .el-menu-item:hover,
+.el-menu--horizontal.el-menu--dark .el-submenu .el-submenu-title:hover,
+.el-menu-item:hover {
+    background-color: transparent;
+}
+
 </style>

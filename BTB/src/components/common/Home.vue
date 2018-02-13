@@ -22,10 +22,10 @@ export default {
 }
 
 </script>
-
 <style scoped>
-.header-bg{
-    background-color: rgba(44,77,118,0.5);
+.header-bg {
+    margin-bottom: 20px;
+    background-color: rgba(44, 77, 118, 0.5);
 }
 
 </style>

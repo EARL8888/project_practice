@@ -14,6 +14,10 @@ cc.Class({
             type: cc.SpriteFrame,
             default: null
         },
+         voiceAnim: {
+            default: null,
+            type: cc.Node
+        }
     },
 
     onLoad: function() {
@@ -37,6 +41,7 @@ cc.Class({
         // bind
         self.node.on(cc.Node.EventType.TOUCH_END, function() {
             self.stopOtherAnim();
+            self.stopAnim_2();
             var countdown = window.localStorage.getItem('countdown');
             if (!countdown || countdown == 1) {
                 // show anim
@@ -69,5 +74,13 @@ cc.Class({
         var self = this;
         self.node.opacity = 0;
         cc.audioEngine.stopAll();
-    }
+    },
+
+     stopAnim_2: function() {
+        //停止按钮动画
+        var self = this;
+        if (!self.voiceAnim) return;
+        if (!self.voiceAnim.getComponent('voice_anim')) return;
+        self.voiceAnim.getComponent('voice_anim').voiceStopAnim();
+    },
 });
