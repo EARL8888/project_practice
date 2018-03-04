@@ -41,7 +41,7 @@ export default {
 .title-style {
     width: 100%;
     display: block;
-    color: #fff;https://www.baidu.com/s?wd=microsoft+office+powerpoint&rsv_idx=2&tn=baiduhome_pg&ie=utf-8&rsv_cq=swf+%E8%BD%AC%E6%8D%A2%E6%88%90PPT&rsv_dl=0_right_recommends_merge_28335&euri=3557312
+    color: #fff;
     font-size: 23px;
     margin-bottom: 10px;
 }
