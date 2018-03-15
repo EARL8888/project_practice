@@ -4,7 +4,9 @@
     Description: 币种详情介绍
 -->
 <template>
-
+    <div>
+        币种详情
+    </div>
 </template>
 
 <script>

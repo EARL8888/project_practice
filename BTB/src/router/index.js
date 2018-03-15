@@ -34,6 +34,10 @@ export default new Router({
                     component: resolve => require(['../page/OreMoneyIntroduced/OreMoneyIntroduced.vue'], resolve)    // 挖矿币种介绍
                 },
                 {
+                    path: '/OreMoneyIntroducedDetails/:id',
+                    component: resolve => require(['../page/OreMoneyIntroduced/OreMoneyIntroducedDetails.vue'], resolve)    // 挖矿币种详情
+                },
+                {
                     path: '/wallet',
                     component: resolve => require(['../page/Wallet/Wallet.vue'], resolve)     // 钱包
                 },

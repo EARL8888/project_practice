@@ -60,7 +60,6 @@ export default {
     border-top: 1px dashed #bbb;
     border-bottom: 1px dashed #bbb;
     height: 650px;
-    margin-bottom: 10px;
 }
 
 .button-sbmt {
