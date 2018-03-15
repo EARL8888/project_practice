@@ -1,3 +1,7 @@
+<!--
+    Author: earl
+    Description: 挖矿收益计算器
+-->
 <template>
     <div>
         <div class="crumbs">

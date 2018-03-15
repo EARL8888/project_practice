@@ -1,3 +1,7 @@
+<!--
+    Author: earl
+    Description: 挖矿币种介绍
+-->
 <template>
     <div>
         <span class="title-style">挖矿币种介绍</span>

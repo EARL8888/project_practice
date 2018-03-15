@@ -11,43 +11,43 @@ export default new Router({
         },
         {
             path: '/readme',
-            component: resolve => require(['../components/common/Home.vue'], resolve),
+            component: resolve => require(['../components/common/Home.vue'], resolve),  // 首页
             children:[
                 {
                     path: '/',
-                    component: resolve => require(['../components/page/Consulting.vue'], resolve)
+                    component: resolve => require(['../page/Consulting/Consulting.vue'], resolve)   // 挖矿咨询
                 },
                 {
                     path: '/introductoryTutorial',
-                    component: resolve => require(['../components/page/IntroductoryTutorial.vue'], resolve)
+                    component: resolve => require(['../page/IntroductoryTutorial/IntroductoryTutorial.vue'], resolve)   // 挖矿入门教程
                 },
                 {
                     path: '/market',
-                    component: resolve => require(['../components/page/Market.vue'], resolve)     // vue-datasource组件
+                    component: resolve => require(['../page/Market/Market.vue'], resolve)     // 行情
                 },
                 {
                     path: '/millIntroduced',
-                    component: resolve => require(['../components/page/MillIntroduced.vue'], resolve)
+                    component: resolve => require(['../page/MillIntroduced/MillIntroduced.vue'], resolve)   // 矿机介绍
                 },
                 {
                     path: '/oreMoneyIntroduced',
-                    component: resolve => require(['../components/page/OreMoneyIntroduced.vue'], resolve)    // Vue-Quill-Editor组件
+                    component: resolve => require(['../page/OreMoneyIntroduced/OreMoneyIntroduced.vue'], resolve)    // 挖矿币种介绍
                 },
                 {
                     path: '/wallet',
-                    component: resolve => require(['../components/page/Wallet.vue'], resolve)     // Vue-Quill-Editor组件
+                    component: resolve => require(['../page/Wallet/Wallet.vue'], resolve)     // 钱包
                 },
                 {
                     path: '/software',
-                    component: resolve => require(['../components/page/Software.vue'], resolve)       // Vue-Core-Image-Upload组件
+                    component: resolve => require(['../page/Software/Software.vue'], resolve)       // 挖矿软件
                 },
                 {
                     path: '/calculator',
-                    component: resolve => require(['../components/page/Calculator.vue'], resolve)   // vue-schart组件
+                    component: resolve => require(['../page/Calculator/Calculator.vue'], resolve)   // 挖矿收益计算器
                 },
                 {
                     path: '/feedback',
-                    component: resolve => require(['../components/page/Feedback.vue'], resolve)    // 拖拽列表组件
+                    component: resolve => require(['../page/Feedback/Feedback.vue'], resolve)    // 意见反馈
                 }
             ]
         }

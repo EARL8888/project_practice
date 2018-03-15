@@ -1,3 +1,7 @@
+<!--
+    Author: earl
+    Description: 矿机介绍
+-->
 <template>
     <div>
         <div class="crumbs">

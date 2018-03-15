@@ -1,3 +1,7 @@
+<!--
+    Author: earl
+    Description: 图表，供参考
+-->
 <template>
     <div>
         <div class="crumbs">
@@ -35,7 +39,7 @@
     // import IEcharts from 'vue-echarts-v3';
     import vSchart from 'vue-schart';
     import IEcharts from 'vue-echarts-v3/src/lite.vue';
-  
+
     import 'echarts/lib/chart/bar';
     import 'echarts/lib/chart/line';
     import 'echarts/lib/chart/pie';
