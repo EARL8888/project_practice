@@ -6,7 +6,7 @@
     <div>
         <span class="title-style">意见和反馈</span>
         <span class="title-flag">您的每次反馈，都将助力我们做的更好</span>
-        <div class="ore_content">
+        <div class="ore_content clearfix">
             <textarea class="input-text" type="textarea" placeholder="请输入内容......"></textarea>
 
             <el-button class="button-sbmt" type="primary">提交</el-button>
@@ -59,7 +59,8 @@ export default {
 .ore_content {
     border-top: 1px dashed #bbb;
     border-bottom: 1px dashed #bbb;
-    overflow: hidden;
+    height: 650px;
+    margin-bottom: 10px;
 }
 
 .button-sbmt {
