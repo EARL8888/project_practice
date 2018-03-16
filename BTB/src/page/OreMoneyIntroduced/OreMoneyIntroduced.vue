@@ -7,49 +7,72 @@
         <span class="title-style">挖矿币种介绍</span>
         <div class="ore_content">
             <span class="hot-title">热门挖矿币种</span>
-            <router-link :to="{path:'/OreMoneyIntroducedDetails', query:{id:111}}">to 到 详情</router-link>
             <ul>
                 <li>
-                    <div class="content-left">
-                        <p class="content-left-title">比特币</p>
-                        <p class="content-left-time">12月28日</p>
-                    </div>
-                    <img src="../../assets/b.png">
+                    <router-link :to="{path:'/OreMoneyIntroducedDetails', query:{id:1112}}">
+                        <div class="_kuai">
+                            <div class="content-left">
+                                <p class="content-left-title">比特币</p>
+                                <p class="content-left-time">12月28日</p>
+                            </div>
+                            <img src="../../assets/b.png">
+                        </div>
+                    </router-link>
                 </li>
                 <li>
-                    <div class="content-left">
-                        <p class="content-left-title">比特币</p>
-                        <p class="content-left-time">12月28日</p>
-                    </div>
-                    <img src="../../assets/b.png">
+                    <router-link :to="{path:'/OreMoneyIntroducedDetails', query:{id:1112}}">
+                        <div class="_kuai">
+                            <div class="content-left">
+                                <p class="content-left-title">比特币</p>
+                                <p class="content-left-time">12月28日</p>
+                            </div>
+                            <img src="../../assets/b.png">
+                        </div>
+                    </router-link>
                 </li>
                 <li>
-                    <div class="content-left">
-                        <p class="content-left-title">比特币</p>
-                        <p class="content-left-time">12月28日</p>
-                    </div>
-                    <img src="../../assets/b.png">
+                    <router-link :to="{path:'/OreMoneyIntroducedDetails', query:{id:1112}}">
+                        <div class="_kuai">
+                            <div class="content-left">
+                                <p class="content-left-title">比特币</p>
+                                <p class="content-left-time">12月28日</p>
+                            </div>
+                            <img src="../../assets/b.png">
+                        </div>
+                    </router-link>
                 </li>
                 <li>
-                    <div class="content-left">
-                        <p class="content-left-title">比特币</p>
-                        <p class="content-left-time">12月28日</p>
-                    </div>
-                    <img src="../../assets/b.png">
+                    <router-link :to="{path:'/OreMoneyIntroducedDetails', query:{id:1112}}">
+                        <div class="_kuai">
+                            <div class="content-left">
+                                <p class="content-left-title">比特币</p>
+                                <p class="content-left-time">12月28日</p>
+                            </div>
+                            <img src="../../assets/b.png">
+                        </div>
+                    </router-link>
                 </li>
                 <li>
-                    <div class="content-left">
-                        <p class="content-left-title">比特币</p>
-                        <p class="content-left-time">12月28日</p>
-                    </div>
-                    <img src="../../assets/b.png">
+                    <router-link :to="{path:'/OreMoneyIntroducedDetails', query:{id:1112}}">
+                        <div class="_kuai">
+                            <div class="content-left">
+                                <p class="content-left-title">比特币</p>
+                                <p class="content-left-time">12月28日</p>
+                            </div>
+                            <img src="../../assets/b.png">
+                        </div>
+                    </router-link>
                 </li>
                 <li>
-                    <div class="content-left">
-                        <p class="content-left-title">比特币</p>
-                        <p class="content-left-time">12月28日</p>
-                    </div>
-                    <img src="../../assets/b.png">
+                    <router-link :to="{path:'/OreMoneyIntroducedDetails', query:{id:1112}}">
+                        <div class="_kuai">
+                            <div class="content-left">
+                                <p class="content-left-title">比特币</p>
+                                <p class="content-left-time">12月28日</p>
+                            </div>
+                            <img src="../../assets/b.png">
+                        </div>
+                    </router-link>
                 </li>
             </ul>
         </div>
@@ -108,10 +131,10 @@
         display: block;
     }
 
-    li {
-        float: left;
+    li ._kuai {
         width: 293px;
         height: 140px;
+        float: left;
         overflow: hidden;
         margin: 15px 15px 15px 15px;
         background-color: #2e4f79;
@@ -131,6 +154,7 @@
     .content-left-time {
         font-size: 18px;
         color: #65cfff;
+        margin-top: 25px;
     }
 
     li img {

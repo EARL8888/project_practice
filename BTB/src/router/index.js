@@ -34,7 +34,7 @@ export default new Router({
                     component: resolve => require(['../page/OreMoneyIntroduced/OreMoneyIntroduced.vue'], resolve)    // 挖矿币种介绍
                 },
                 {
-                    path: '/OreMoneyIntroducedDetails/:id',
+                    path: '/OreMoneyIntroducedDetails',
                     component: resolve => require(['../page/OreMoneyIntroduced/OreMoneyIntroducedDetails.vue'], resolve)    // 挖矿币种详情
                 },
                 {
@@ -42,8 +42,16 @@ export default new Router({
                     component: resolve => require(['../page/Wallet/Wallet.vue'], resolve)     // 钱包
                 },
                 {
+                    path: '/WalletDetails',
+                    component: resolve => require(['../page/Wallet/WalletDetails.vue'], resolve)     // 钱包
+                },
+                {
                     path: '/software',
                     component: resolve => require(['../page/Software/Software.vue'], resolve)       // 挖矿软件
+                },
+                {
+                    path: '/SoftwareDetails',
+                    component: resolve => require(['../page/Software/SoftwareDetails.vue'], resolve)       // 挖矿软件
                 },
                 {
                     path: '/calculator',

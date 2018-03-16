@@ -4,79 +4,188 @@
 -->
 <template>
     <div>
-        <div class="crumbs">
-            <el-breadcrumb separator="/">
-                <el-breadcrumb-item><i class="el-icon-date"></i> 表单</el-breadcrumb-item>
-                <el-breadcrumb-item>图片上传</el-breadcrumb-item>
-            </el-breadcrumb>
+        <span class="title-style">挖矿软件</span>
+        <div class="w clearfix tag-title">
+            <div class="fl">
+                <ul class="title-ul">
+                    <li class="fl">蚂蚁s7</li>
+                    <li class="fl">蚂蚁s7</li>
+                    <li class="fl">蚂蚁s7</li>
+                    <li class="fl">蚂蚁s7</li>
+                    <li class="fl">蚂蚁s7</li>
+                    <li class="fl">蚂蚁s7</li>
+                </ul>
+            </div>
+            <div class="fr input-fr">
+                <input
+                    class="__input"
+                    placeholder="请输入要查询的内容"
+                    v-model="input21">
+                <img class="fangdajing-img" src="../../assets/fangdajing.png">
+            </div>
         </div>
-        <div class="content-title">支持拖拽</div>
-        <div class="plugins-tips">
-            Element UI自带上传组件。
-            访问地址：<a href="http://element.eleme.io/#/zh-CN/component/upload" target="_blank">Element UI Upload</a>
+        <div class="ore_content">
+            <ul>
+                <li>
+                    <router-link :to="{path:'SoftwareDetails', query:{id:1112}}">
+                        <div class="_kuai">
+                            <div class="content-left">
+                                <p class="content-left-title">蚂蚁S9官网挖矿软件</p>
+                                <p class="content-left-time">12月28日</p>
+                            </div>
+                        </div>
+                    </router-link>
+                </li>
+                <li>
+                    <router-link :to="{path:'SoftwareDetails', query:{id:1112}}">
+                        <div class="_kuai">
+                            <div class="content-left">
+                                <p class="content-left-title">蚂蚁S9官网挖矿软件</p>
+                                <p class="content-left-time">12月28日</p>
+                            </div>
+                        </div>
+                    </router-link>
+                </li>
+                <li>
+                    <router-link :to="{path:'SoftwareDetails', query:{id:1112}}">
+                        <div class="_kuai">
+                            <div class="content-left">
+                                <p class="content-left-title">蚂蚁S9官网挖矿软件</p>
+                                <p class="content-left-time">12月28日</p>
+                            </div>
+                        </div>
+                    </router-link>
+                </li>
+                <li>
+                    <router-link :to="{path:'SoftwareDetails', query:{id:1112}}">
+                        <div class="_kuai">
+                            <div class="content-left">
+                                <p class="content-left-title">蚂蚁S9官网挖矿软件</p>
+                                <p class="content-left-time">12月28日</p>
+                            </div>
+                        </div>
+                    </router-link>
+                </li>
+                <li>
+                    <router-link :to="{path:'SoftwareDetails', query:{id:1112}}">
+                        <div class="_kuai">
+                            <div class="content-left">
+                                <p class="content-left-title">蚂蚁S9官网挖矿软件</p>
+                                <p class="content-left-time">12月28日</p>
+                            </div>
+                        </div>
+                    </router-link>
+                </li>
+                <li>
+                    <router-link :to="{path:'SoftwareDetails', query:{id:1112}}">
+                        <div class="_kuai">
+                            <div class="content-left">
+                                <p class="content-left-title">蚂蚁S9官网挖矿软件</p>
+                                <p class="content-left-time">12月28日</p>
+                            </div>
+                        </div>
+                    </router-link>
+                </li>
+            </ul>
         </div>
-        <el-upload
-            class="upload-demo"
-            drag
-            action="/api/posts/"
-            multiple>
-            <i class="el-icon-upload"></i>
-            <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-            <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div>
-        </el-upload>
-        <div class="content-title">支持裁剪</div>
-        <div class="plugins-tips">
-            Vue-Core-Image-Upload：一款轻量级的vue上传插件，支持裁剪。
-            访问地址：<a href="https://github.com/Vanthink-UED/vue-core-image-upload" target="_blank">Vue-Core-Image-Upload</a>
-        </div>
-        <img class="pre-img" :src="src" alt="">
-        <vue-core-image-upload :class="['pure-button','pure-button-primary','js-btn-crop']"
-                               :crop="true"
-                               text="上传图片"
-                               url="/api/posts/"
-                               extensions="png,gif,jpeg,jpg"
-                               @:imageuploaded="imageuploaded"
-                               @:errorhandle="handleError"></vue-core-image-upload>
     </div>
 </template>
-
 <script>
-    import VueCoreImageUpload  from 'vue-core-image-upload';
+    import {quillEditor} from 'vue-quill-editor';
+
     export default {
-        data: function(){
+        data: function () {
             return {
-                src: './static/img/img.jpg',
-                fileList: []
-            }
-        },
-        components: {
-                VueCoreImageUpload
-        },
-        methods:{
-            imageuploaded(res) {
-                console.log(res)
-            },
-            handleError(){
-                this.$notify.error({
-                    title: '上传失败',
-                    message: '图片上传接口上传失败，可更改为自己的服务器接口'
-                });
+                input21: ''
             }
         }
     }
-</script>
 
+</script>
 <style scoped>
-    .content-title{
-        font-weight: 400;
-        line-height: 50px;
-        margin: 10px 0;
-        font-size: 22px;
-        color: #1f2f3d;
+    .title-style {
+        width: 100%;
+        display: block;
+        color: #fff;
+        font-size: 23px;
+        margin-bottom: 10px;
     }
-    .pre-img{
-        width:250px;
-        height: 250px;
-        margin-bottom: 20px;
+
+    .ore_content {
+        border-top: 1px dashed #bbb;
+        border-bottom: 1px dashed #bbb;
+        overflow: hidden;
     }
+
+    li ._kuai {
+        width: 293px;
+        height: 140px;
+        float: left;
+        overflow: hidden;
+        margin: 15px 15px 15px 15px;
+        background-color: #2e4f79;
+        padding: 30px 30px 30px 47px;
+    }
+
+    .content-left {
+        float: left;
+        margin-top: 60px
+    }
+
+    .content-left-title {
+        font-size: 30px;
+        color: #65cfff;
+    }
+
+    .content-left-time {
+        font-size: 18px;
+        color: #65cfff;
+        margin-top: 25px;
+    }
+
+    li img {
+        position: relative;
+        float: right;
+        top: 85px;
+    }
+
+    .tag-title {
+        margin: 20px 0;
+    }
+
+    .title-ul li {
+        background-color: #2e4f79;
+        width: 100px;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        margin: 0 10px;
+        color: #fff;
+        border-radius: 8px;
+        font-size: 18px;
+    }
+
+    .input-fr {
+        margin-right: 10px;
+        margin-top: 5px;
+    }
+    .__input {
+        height: 36px;
+        position: relative;
+        border-radius: 0px;
+        border: none;
+        border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;
+        width: auto;
+        top: 3px;
+        right: -3px;
+        padding-left: 10px;
+    }
+
+    .fangdajing-img {
+        position: relative;
+        height: 36px;
+        top: 2.5px;
+    }
+
 </style>

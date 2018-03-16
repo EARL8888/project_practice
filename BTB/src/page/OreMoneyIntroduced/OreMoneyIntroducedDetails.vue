@@ -11,7 +11,20 @@
 
 <script>
     export default {
-        name: "ore-money-introduced-details"
+        data() {
+            return {
+                shopId: null,
+            }
+        },
+        created() {
+            console.log('测试：'+this.$route.query.id);
+        },
+        methods: {
+
+        },
+        updated: function () {
+
+        }
     }
 </script>
 
