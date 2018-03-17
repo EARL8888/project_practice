@@ -8,36 +8,24 @@
         <span class="title-flag">您的每次反馈，都将助力我们做的更好</span>
         <div class="ore_content clearfix w">
             <textarea class="input-text" type="textarea" placeholder="请输入内容......"></textarea>
-            <el-button class="button-sbmt" type="primary">提交</el-button>
+            <el-button class="button-sbmt" type="primary" @click="onSubmit()">提交</el-button>
         </div>
     </div>
 </template>
 <script>
-    import {quillEditor} from 'vue-quill-editor';
-
     export default {
         data: function () {
             return {
                 textarea2: '',
             }
         },
-        components: {
-            quillEditor
-        },
+        components: {},
         methods: {
-            onEditorChange({editor, html, text}) {
-                this.content = html;
-            },
-            submit() {
-                console.log(this.content);
+            onSubmit(){
                 this.$message.success('提交成功！');
             }
         },
-        computed: {
-            editor() {
-                return this.$refs.myTextEditor.quillEditor;
-            }
-        }
+        computed: {}
     }
 
 </script>
