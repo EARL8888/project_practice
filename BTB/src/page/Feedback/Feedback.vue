@@ -7,7 +7,7 @@
         <span class="title-style">意见和反馈</span>
         <span class="title-flag">您的每次反馈，都将助力我们做的更好</span>
         <div class="ore_content clearfix w">
-            <textarea class="input-text" type="textarea" placeholder="请输入内容......"></textarea>
+            <textarea v-model="inputData" class="input-text" type="textarea" placeholder="请输入内容......"></textarea>
             <el-button class="button-sbmt" type="primary" @click="onSubmit()">提交</el-button>
         </div>
     </div>
@@ -16,13 +16,15 @@
     export default {
         data: function () {
             return {
-                textarea2: '',
+                inputData: '',
             }
         },
         components: {},
         methods: {
-            onSubmit(){
-                this.$message.success('提交成功！');
+            onSubmit() {
+                let textData = '';
+                this.inputData == "" ? textData = "无内容提交" : textData = this.inputData;
+                this.$message.success(textData);
             }
         },
         computed: {}
