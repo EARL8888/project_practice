@@ -1,0 +1,391 @@
+/**
+ * Author: earl
+ * Create Time: 2018-03-26 16:33
+ * Description: 动画
+ */
+
+body {
+    margin: 30px;
+}
+
+h3 {
+    border-bottom: 2px solid #1329ff;
+}
+
+table, th, td {
+    border: 1px solid blue;
+}
+
+.index_01 .div1 {
+    width: 100px;
+    height: 100px;
+    background: red;
+    -webkit-animation: index_01 5s; /* Safari and Chrome */
+    -o-animation: index_01 5s; /* Opera */
+    -moz-animation: index_01 5s; /* Firefox */
+    animation: index_01 5s;
+}
+
+@-webkit-keyframes index_01 { /* Safari and Chrome */
+    0% {
+        background: red
+    }
+    100% {
+        background: yellow
+    }
+}
+
+@-moz-keyframes index_01 { /* Firefox */
+    0% {
+        background: red
+    }
+    100% {
+        background: yellow
+    }
+}
+
+@-o-keyframes index_01 { /* Opera */
+    0% {
+        background: red
+    }
+    100% {
+        background: yellow
+    }
+}
+
+@keyframes index_01 {
+    0% {
+        background: red
+    }
+    100% {
+        background: yellow
+    }
+}
+
+.index_02 .div1 {
+    width: 100px;
+    height: 100px;
+    background: red;
+    -webkit-animation: index_02 5s; /* Safari and Chrome */
+    -o-animation: index_02 5s; /* Opera */
+    -moz-animation: index_02 5s; /* Firefox */
+    animation: index_02 5s;
+}
+
+@-webkit-keyframes index_02 { /* Safari and Chrome */
+    0% {
+        background: red
+    }
+    25% {
+        background: yellow;
+    }
+    50% {
+        background: blue;
+    }
+    75% {
+        background: black;
+    }
+    100% {
+        background: green;
+    }
+}
+
+@-moz-keyframes index_02 { /* Firefox */
+    0% {
+        background: red
+    }
+    25% {
+        background: yellow;
+    }
+    50% {
+        background: blue;
+    }
+    75% {
+        background: black;
+    }
+    100% {
+        background: green;
+    }
+}
+
+@-o-keyframes index_02 { /* Opera */
+    0% {
+        background: red
+    }
+    25% {
+        background: yellow;
+    }
+    50% {
+        background: blue;
+    }
+    75% {
+        background: black;
+    }
+    100% {
+        background: green;
+    }
+}
+
+@keyframes index_02 {
+    0% {
+        background: red
+    }
+    25% {
+        background: yellow;
+    }
+    50% {
+        background: blue;
+    }
+    75% {
+        background: black;
+    }
+    100% {
+        background: green;
+    }
+}
+
+.index_03 .div1 {
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: relative; /* 使用left和top 必须要写的 */
+    -webkit-animation: index_03 5s; /* Safari and Chrome */
+    -o-animation: index_03 5s; /* Opera */
+    -moz-animation: index_03 5s; /* Firefox */
+    animation: index_03 5s;
+}
+
+@-webkit-keyframes index_03 { /* Safari and Chrome */
+    0% {
+        background: red;
+        left: 0;
+        top: 0;
+    }
+    25% {
+        background: yellow;
+        left: 200px;
+        top: 0;
+    }
+    50% {
+        background: blue;
+        left: 200px;
+        top: 200px;
+    }
+    75% {
+        background: black;
+        left: 0;
+        top: 200px;
+    }
+    100% {
+        background: green;
+        left: 0;
+        top: 0;
+    }
+}
+
+@-moz-keyframes index_03 { /* Firefox */
+    0% {
+        background: red;
+        left: 0;
+        top: 0;
+    }
+    25% {
+        background: yellow;
+        left: 200px;
+        top: 0;
+    }
+    50% {
+        background: blue;
+        left: 200px;
+        top: 200px;
+    }
+    75% {
+        background: black;
+        left: 0;
+        top: 200px;
+    }
+    100% {
+        background: green;
+        left: 0;
+        top: 0;
+    }
+}
+
+@-o-keyframes index_03 { /* Opera */
+    0% {
+        background: red;
+        left: 0;
+        top: 0;
+    }
+    25% {
+        background: yellow;
+        left: 200px;
+        top: 0;
+    }
+    50% {
+        background: blue;
+        left: 200px;
+        top: 200px;
+    }
+    75% {
+        background: black;
+        left: 0;
+        top: 200px;
+    }
+    100% {
+        background: green;
+        left: 0;
+        top: 0;
+    }
+}
+
+@keyframes index_03 {
+    0% {
+        background: red;
+        left: 0;
+        top: 0;
+    }
+    25% {
+        background: yellow;
+        left: 200px;
+        top: 0;
+    }
+    50% {
+        background: blue;
+        left: 200px;
+        top: 200px;
+    }
+    75% {
+        background: black;
+        left: 0;
+        top: 200px;
+    }
+    100% {
+        background: green;
+        left: 0;
+        top: 0;
+    }
+}
+
+.index_04 .div1 {
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: relative; /* 使用left和top 必须要写的 */
+    -moz-animation: index_04 5s linear 2s infinite alternate; /* Firefox: */
+    -webkit-animation: index_04 5s linear 2s infinite alternate; /* Safari 和 Chrome: */
+    -o-animation: index_04 5s linear 2s infinite alternate; /* Opera: */
+    animation: index_04 5s linear 2s infinite alternate;
+}
+
+@-webkit-keyframes index_04 { /* Safari and Chrome */
+    0% {
+        background: red;
+        left: 0;
+        top: 0;
+    }
+    25% {
+        background: yellow;
+        left: 200px;
+        top: 0;
+    }
+    50% {
+        background: blue;
+        left: 200px;
+        top: 200px;
+    }
+    75% {
+        background: green;
+        left: 0;
+        top: 200px;
+    }
+    100% {
+        background: red;
+        left: 0;
+        top: 0;
+    }
+}
+
+@-moz-keyframes index_04 { /* Firefox */
+    0% {
+        background: red;
+        left: 0;
+        top: 0;
+    }
+    25% {
+        background: yellow;
+        left: 200px;
+        top: 0;
+    }
+    50% {
+        background: blue;
+        left: 200px;
+        top: 200px;
+    }
+    75% {
+        background: green;
+        left: 0;
+        top: 200px;
+    }
+    100% {
+        background: red;
+        left: 0;
+        top: 0;
+    }
+}
+
+@-o-keyframes index_04 { /* Opera */
+    0% {
+        background: red;
+        left: 0;
+        top: 0;
+    }
+    25% {
+        background: yellow;
+        left: 200px;
+        top: 0;
+    }
+    50% {
+        background: blue;
+        left: 200px;
+        top: 200px;
+    }
+    75% {
+        background: green;
+        left: 0;
+        top: 200px;
+    }
+    100% {
+        background: red;
+        left: 0;
+        top: 0;
+    }
+}
+
+@keyframes index_04 {
+    0% {
+        background: red;
+        left: 0;
+        top: 0;
+    }
+    25% {
+        background: yellow;
+        left: 200px;
+        top: 0;
+    }
+    50% {
+        background: blue;
+        left: 200px;
+        top: 200px;
+    }
+    75% {
+        background: green;
+        left: 0;
+        top: 200px;
+    }
+    100% {
+        background: red;
+        left: 0;
+        top: 0;
+    }
+}

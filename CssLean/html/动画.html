@@ -1,0 +1,116 @@
+<!-- 
+    Author: earl
+    Create Time: 2018-03-26 16:32
+    Description: 动画
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <link rel="stylesheet" href="../css/donghua.css">
+</head>
+<body>
+<p>
+    <strong>什么是 CSS3 中的动画？</strong><br>
+    动画是使元素从一种样式逐渐变化为另一种样式的效果。<br>
+    您可以改变任意多的样式任意多的次数。<br>
+    请用百分比来规定变化发生的时间，或用关键词 "from" 和 "to"，等同于 0% 和 100%。<br>
+    0% 是动画的开始，100% 是动画的完成。<br>
+    为了得到最佳的浏览器支持，您应该始终定义 0% 和 100% 选择器。<br>
+
+    <strong>注释：本例在 Internet Explorer 中无效。</strong>
+</p>
+<h3></h3>
+<div class="index_01">
+    <h3>简单颜色从红色变成黄色，共用时 5s：</h3>
+    <div class="div1">我是变颜色的动画</div>
+</div>
+<div class="index_02">
+    <h3>颜色变化 红-黄-蓝-黑-绿，共用时 5s：</h3>
+    <div class="div1">我是变颜色的动画</div>
+</div>
+<div class="index_03">
+    <h3>颜色变化 红-黄-蓝-黑-绿 位置变化，共用时 5s：</h3>
+    <div class="div1">我是变颜色和位移的动画</div>
+</div>
+<div class="index_04">
+    <h3>颜色变化 红-黄-蓝-绿-红 位置线性变化，延时2s开始，无限循环，开始下一次动画逆向，共用时 5s：</h3>
+    <table>
+        <tbody>
+        <tr>
+            <th style="width:30%;">属性</th>
+            <th>描述</th>
+            <th style="width:5%;">参数位置</th>
+        </tr>
+
+        <tr>
+            <td><a href="#" title="CSS3 @keyframes 规则">@keyframes</a></td>
+            <td>规定动画。</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td><a href="#" title="CSS3 animation 属性">animation</a></td>
+            <td>所有动画属性的简写属性，除了 animation-play-state 属性。</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td><a href="#" title="CSS3 animation-name 属性">animation-name</a></td>
+            <td>规定 @keyframes 动画的名称。</td>
+            <td>1</td>
+        </tr>
+
+        <tr>
+            <td><a href="#" title="CSS3 animation-duration 属性">animation-duration</a>
+            </td>
+            <td>规定动画完成一个周期所花费的秒或毫秒。默认是 0。</td>
+            <td>2</td>
+        </tr>
+
+        <tr>
+            <td><a href="#" CSS3 animation-timing-function 属性">animation-timing-function</a>
+            </td>
+            <td>规定动画的速度曲线。默认是 "ease"。</td>
+            <td>3</td>
+        </tr>
+
+        <tr>
+            <td><a href="#">animation-delay</a></td>
+            <td>规定动画何时开始。默认是 0。</td>
+            <td>4</td>
+        </tr>
+
+        <tr>
+            <td><a href="#">animation-iteration-count</a>
+            </td>
+            <td>规定动画被播放的次数。默认是 1。infinite（无限），也可以写次数</td>
+            <td>5</td>
+        </tr>
+
+        <tr>
+            <td><a href="#">animation-direction</a>
+            </td>
+            <td>规定动画是否在下一周期逆向地播放。默认是 "normal"（从头开始）"alternate"(逆向)，。</td>
+            <td>6</td>
+        </tr>
+
+        <tr>
+            <td><a href="#">animation-play-state</a></td>
+            <td>规定动画是否正在运行或暂停。默认是 "running"。</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td><a href="#">animation-fill-mode</a>
+            </td>
+            <td>规定对象动画时间之外的状态。</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="div1">我不会停止，我会倒退，匀速</div>
+</div>
+</body>
+</html>

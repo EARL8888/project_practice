@@ -3,6 +3,11 @@
  * Create Time: 2018-03-20 10:57
  * Description: 
  */
+
+body {
+    margin: 30px;
+}
+
 .left {
     width: 200px;
     height: 600px;
