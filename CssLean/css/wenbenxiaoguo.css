@@ -1,0 +1,105 @@
+/**
+ * Author: earl
+ * Create Time: 2018-03-22 17:33
+ * Description: 文本效果
+ */
+
+body {
+    margin: 30px 0;
+}
+
+h3 {
+    border-bottom: 2px solid #1329ff;
+}
+
+.index_01 .span1 {
+    text-shadow: 5px 5px 5px #f00;
+}
+
+.index_02 .div1 {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    background-color: yellow;
+    box-shadow: 5px 5px 5px #999;
+}
+
+.index_03 .div1 {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    padding: 10px;
+    background-color: white;
+}
+
+.index_03 img {
+    width: 100%;
+    border: 1px solid #8a4419;
+    border-style: inset;
+}
+
+.index_03 .div1::after {
+    content: '';
+    position: absolute;
+    z-index: -1; /* hide shadow behind image */
+    -webkit-box-shadow: 10px 15px 20px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 10px 15px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 10px 15px 20px rgba(0, 0, 0, 0.3);
+    width: 70%;
+    left: 15%; /* one half of the remaining 30% */
+    height: 100px;
+    bottom: 0;
+}
+
+.index_04 .div1 {
+    width: 201px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+    text-align: center;
+}
+
+.index_04 img {
+    border: 1px solid #999;
+}
+
+.index_04 .content {
+    padding: 10px;
+}
+
+.index_05 .div1 {
+    white-space: nowrap;
+    width: 12em;
+    overflow: hidden;
+    border: 1px solid #f00;
+    text-overflow: ellipsis;
+}
+
+.index_05 .div2 {
+    white-space: nowrap;
+    width: 12em;
+    overflow: hidden;
+    border: 1px solid #f00;
+    text-overflow: clip;
+}
+
+.index_06 .p1 {
+    width: 18em;
+    border: 1px solid #999;
+    word-wrap: break-word;
+}
+
+.index_07 .p1 {
+    width: 30em;
+    border: 1px solid #999;
+    word-break: break-all;
+}
+
+.index_07 .p2 {
+    width: 30em;
+    border: 1px solid #999;
+    word-break: keep-all;
+}
+

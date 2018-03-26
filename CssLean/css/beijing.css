@@ -1,0 +1,72 @@
+/**
+ * Author: earl
+ * Create Time: 2018-03-22 13:01
+ * Description: 背景
+ */
+
+h3{
+    border-bottom: 2px solid #1329ff;
+}
+
+.index_01 {
+    background: url(../images/xiaolian.png), url(../images/fangkuai.png);
+    background-position: right bottom, left top;
+    background-repeat: no-repeat, repeat;
+}
+
+.index_02 {
+    background: url(../images/xiaolian.png) right bottom no-repeat, url(../images/fangkuai.png) left top repeat;
+}
+
+.index_03 {
+    background: url(../images/xiaolian.png) no-repeat;
+    background-size: 60px 60px;
+    padding-top: 60px;
+}
+
+.index_04 {
+    background: url(../images/xiaolian.png) no-repeat;
+    background-size: 100% 100%;
+    padding-top: 60px;
+}
+
+.index_05 div {
+    background: url("../images/xiaolian.png");
+    background-size: 60px 60px;
+    border: 100px dashed black;
+    padding: 70px;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.index_05 .div1 {
+    background-origin: content-box;
+}
+
+.index_05 .div2 {
+    background-origin: padding-box;
+}
+
+.index_05 .div3 {
+    background-origin: border-box;
+}
+
+.index_06 .div1{
+    border: 10px dotted black;
+    padding: 35px;
+    background: yellow;
+}
+
+.index_06 .div2{
+    border: 10px dotted black;
+    padding: 35px;
+    background: yellow;
+    background-clip: padding-box;
+}
+
+.index_06 .div3{
+    border: 10px dotted black;
+    padding: 35px;
+    background: yellow;
+    background-clip: content-box;
+}
