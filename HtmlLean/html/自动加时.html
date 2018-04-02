@@ -11,23 +11,28 @@
     <script>
         var i = 0;
         var t;
+        var clicktag;
 
         function timeStart() {
-            document.getElementById("p1").innerHTML = i + '';
-            i += 1;
+            clearTimeout(t);
             t = setTimeout("timeStart()", 1000);
+            i += 1;
+            document.getElementById("p1").innerHTML = i + '';
+            document.getElementById("onclick_01").disabled = true;
         }
 
         function timeStop() {
             clearTimeout(t);
             i = 0;
             document.getElementById("p1").innerHTML = i + '';
+            document.getElementById("onclick_01").disabled = false;
         }
+
     </script>
 </head>
 <body>
-<button onclick="timeStart()">点我开启计时</button>
-<button onclick="timeStop()">计时结束</button>
+<button id="onclick_01" onclick="timeStart()">点我开启计时</button>
+<button id="onclick_02" onclick="timeStop()">计时结束</button>
 <p id="p1"></p>
 </body>
 </html>
