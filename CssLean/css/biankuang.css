@@ -21,7 +21,7 @@ body {
 .index_03 {
     border: 10px solid transparent;
     width: 300px;
-    border-image: url(../images/fangkuai.png) 30 30 round;
-    -o-border-image: url(../images/fangkuai.png) 30 30 round;
-    -webkit-border-image: url(../images/fangkuai.png) 120 122 round;
+    border-image: url(../images/fangkuai.png) 120 120 round;
+    -o-border-image: url(../images/fangkuai.png) 120 120 round;
+    -webkit-border-image: url(../images/fangkuai.png) 120 120 round;
 }
