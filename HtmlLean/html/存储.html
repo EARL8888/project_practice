@@ -1,0 +1,62 @@
+<!-- 
+    Author: earl
+    Create Time: 2018-04-02 17:36
+    Description: 存储
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>存储</title>
+    <script>
+        function countClick1() {
+            if (typeof (Storage) !== "undefined") {
+                if (sessionStorage.pagecount) {
+                    sessionStorage.pagecount = Number(sessionStorage.pagecount) + 1
+                } else {
+                    sessionStorage.pagecount = "1";
+                }
+                document.getElementById("p1").innerHTML = "这个会话框点击了" + Number(sessionStorage.pagecount)
+            } else {
+                document.getElementById("p1").innerHTML = "该浏览器不支持sessionStorage存储"
+            }
+        }
+
+        function countClick2() {
+            if (typeof (Storage) !== "undefined") {
+                if (localStorage.pagecount) {
+                    localStorage.pagecount = Number(localStorage.pagecount) + 1
+                } else {
+                    localStorage.pagecount = "1";
+                }
+                document.getElementById("p2").innerHTML = "这个会话框点击了" + Number(localStorage.pagecount)
+            } else {
+                document.getElementById("p2").innerHTML = "该浏览器不支持localStorage存储"
+            }
+        }
+
+        function countClick3() {
+            if (typeof (Storage) !== "undefined") {
+                localStorage.clear(); //清除所有localStorage存储
+                sessionStorage.clear(); //清除所有localStorage存储
+                document.getElementById("p2").innerHTML = "清除所有web存储成功";
+                document.getElementById("p1").innerHTML = "清除所有web存储成功";
+            } else {
+                document.getElementById("p2").innerHTML = "该浏览器不支持localStorage存储"
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+<button onclick="countClick1()">sessionStorage存储，关掉浏览器就没有了，也可以清除</button>
+<p id="p1"></p>
+
+<button onclick="countClick2()">localStorage存储，只要不清除，一直存在</button>
+<p id="p2"></p>
+
+<button onclick="countClick3()">清除所有web存储</button>
+
+</body>
+</html>

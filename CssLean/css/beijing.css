@@ -8,13 +8,13 @@ body {
     margin: 30px;
 }
 
-h3{
+h3 {
     border-bottom: 2px solid #1329ff;
 }
 
 .index_01 {
     background: url(../images/xiaolian.png), url(../images/fangkuai.png);
-    background-position: right bottom, left top;
+    background-position: right bottom, left top; /*图片在布局中的位置 取图片的位置，图片在布局中的位置 取图片的位置*/
     background-repeat: no-repeat, repeat;
 }
 
@@ -55,20 +55,20 @@ h3{
     background-origin: border-box;
 }
 
-.index_06 .div1{
+.index_06 .div1 {
     border: 10px dotted black;
     padding: 35px;
     background: yellow;
 }
 
-.index_06 .div2{
+.index_06 .div2 {
     border: 10px dotted black;
     padding: 35px;
     background: yellow;
     background-clip: padding-box;
 }
 
-.index_06 .div3{
+.index_06 .div3 {
     border: 10px dotted black;
     padding: 35px;
     background: yellow;

@@ -34,6 +34,7 @@ h3 {
     -o-transition: width 2s, height 2s, transform 2s; /* Opera */
     -moz-transition: width 2s, height 2s, transform 2s; /* Firefox 4 */
     transition: width 2s, height 2s, transform 2s;
+    /*transition: all 2s; !*如果元素过多，可使用all*!*/
 }
 
 .index_02 .div1:hover {
