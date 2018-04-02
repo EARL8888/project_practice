@@ -1,0 +1,127 @@
+<!-- 
+    Author: earl
+    Create Time: 2018-04-02 14:11
+    Description: Canvas
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+    <link rel="stylesheet" href="../css/Canvas.css">
+</head>
+<body>
+<div class="index_01">
+    <h3>用canvas绘制一个矩形 fillRect</h3>
+    <canvas id="canvas_01" width="200" height="200" style="border: 1px solid #f00">您的浏览器不支持 HTML5 canvas 标签</canvas>
+</div>
+
+<div class="index_02">
+    <h3>用canvas绘制一个斜线 lineTo</h3>
+    <canvas id="canvas_02" width="200" height="200" style="border: 1px solid #f00">您的浏览器不支持 HTML5 canvas 标签</canvas>
+</div>
+
+<div class="index_03">
+    <h3>用canvas绘制一个圆形 arc</h3>
+    <canvas id="canvas_03" width="200" height="200" style="border: 1px solid #f00">您的浏览器不支持 HTML5 canvas 标签</canvas>
+</div>
+
+<div class="index_04">
+    <h3>用canvas绘制实心字 fillText</h3>
+    <canvas id="canvas_04" width="200" height="200" style="border: 1px solid #f00">您的浏览器不支持 HTML5 canvas 标签</canvas>
+</div>
+
+<div class="index_05">
+    <h3>用canvas绘制空心字 strokeText</h3>
+    <canvas id="canvas_05" width="200" height="200" style="border: 1px solid #f00">您的浏览器不支持 HTML5 canvas 标签</canvas>
+</div>
+
+<div class="index_06">
+    <h3>用canvas绘制线性渐变 createLinearGradient</h3>
+    <canvas id="canvas_06" width="200" height="200" style="border: 1px solid #f00">您的浏览器不支持 HTML5 canvas 标签</canvas>
+</div>
+
+<div class="index_07">
+    <h3>用canvas绘制径向渐变 createRadialGradient</h3>
+    <canvas id="canvas_07" width="200" height="200" style="border: 1px solid #f00">您的浏览器不支持 HTML5 canvas 标签</canvas>
+</div>
+
+<div class="index_08">
+    <h3>用canvas绘制图片 drawImage</h3>
+    <p>
+        drawImage(image, x, y) //按原图片大小绘制。<br>
+        drawImage(image, x, y, width, height) //按指定大小绘制。<br>
+        drawImage(image, sourceX, sourceY, sourceWidth, sourceHeight,<br>
+        destX, destY, destWidth, destHeight) //常用于图片裁剪。<br>
+    </p>
+    <canvas id="canvas_08" width="200" height="200" style="border: 1px solid #f00">您的浏览器不支持 HTML5 canvas 标签</canvas>
+</div>
+
+<script>
+
+    //用canvas绘制一个矩形
+    var c1 = document.getElementById("canvas_01"); // 1、首先，找到 <canvas> 元素
+    var ctx1 = c1.getContext("2d"); // 2、然后，创建 context 对象
+    ctx1.fillStyle = "#ff0000"; // 3、绘制一个红色的矩形的颜色
+    ctx1.fillRect(0, 0, 150, 75); // 4、定义了矩形当前的填充方式
+
+    //用canvas画一条斜线
+    var c2 = document.getElementById("canvas_02");
+    var ctx2 = c2.getContext("2d");
+    ctx2.moveTo(0, 0);
+    ctx2.lineTo(100, 200);
+    ctx2.stroke();
+
+    //用canvas绘制一个圆形
+    var c3 = document.getElementById("canvas_03");
+    var ctx3 = c3.getContext("2d");
+    ctx3.beginPath();
+    ctx3.arc(90, 50, 40, 0, 2 * Math.PI);
+    ctx3.stroke();
+
+    //用canvas 绘制实心字 fillText
+    var c4 = document.getElementById("canvas_04");
+    var ctx4 = c4.getContext("2d");
+    ctx4.font = "30px Arial";
+    ctx4.fillText("你好！我的世界", 50, 50, 100);
+
+    //用canvas 绘制空心字 strokeText
+    var c5 = document.getElementById("canvas_05");
+    var ctx5 = c5.getContext("2d");
+    ctx5.font = "30px Arial";
+    ctx5.strokeText("你好！我的世界！", 50, 50, 100);
+
+    //用canvas 用canvas绘制线性渐变
+    var c6 = document.getElementById("canvas_06");
+    var ctx6 = c6.getContext("2d");
+    //创建线性
+    var grd_01 = ctx6.createLinearGradient(0, 0, 150, 0);
+    grd_01.addColorStop(0, "red"); //渐变开始的颜色
+    grd_01.addColorStop(1, "white"); //渐变结束的颜色
+    //填充渐变
+    ctx6.fillStyle = grd_01;
+    ctx6.fillRect(10, 10, 150, 80); //设置填充区域的位置及大小
+
+    //用canvas绘制径向渐变
+    var c7 = document.getElementById("canvas_07");
+    var ctx7 = c7.getContext("2d");
+    //创建径向
+    var grd_01 = ctx7.createRadialGradient(100, 100, 5, 100, 100, 100);//开始位置（x,y） 开始半径 结束位置（x,y） 结束半径
+    grd_01.addColorStop(0, "red"); //渐变开始的颜色
+    grd_01.addColorStop(1, "blue"); //渐变结束的颜色
+    //填充渐变
+    ctx7.fillStyle = grd_01;
+    ctx7.fillRect(0, 0, 200, 200); //设置填充区域的位置及大小
+
+    //用canvas 绘制图片
+    var c8 = document.getElementById("canvas_08");
+    var ctx_8 = c8.getContext("2d");
+
+    var img = new Image();
+    img.src = "../image/xiaolian.png";
+    ctx_8.drawImage(img, 0, 0, 200, 200);
+
+</script>
+
+</body>
+</html>
