@@ -1,0 +1,137 @@
+<!-- 
+    Author: earl
+    Create Time: 2018-04-03 15:52
+    Description: 深入理解JavaScript系列1
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>深入理解JavaScript系列1</title>
+    <link rel="stylesheet" href="../css/深入理解JavaScript系列01.css">
+    <script>
+        //最小全局变量
+        function click_01() {
+            myGlobal = "hello"; //不推荐写法
+            console.log(myGlobal); // "hello"
+            console.log(window.myGlobal); // "hello"
+            console.log(window["myGlobal"]); // "hello"
+            console.log(this.myGlobal); // "hello"
+        }
+
+        //隐式全局变量和明确定义的全局变量的区别（隐式全局变量是全局对象的属性）
+        function click_02() {
+            //定义三个全局变量
+            var global_var = 1;
+            global_novar = 2; //不推荐
+            (function () {
+                global_fromfunc = 3; //不推荐
+            }())
+
+            //试图删除
+            delete global_var; // false
+            delete global_novar; // true
+            delete global_fromfunc; // true
+
+            //测试删除效果
+            console.log("var 定义的： " + typeof (global_var)); // "number"
+            console.log("var 没定义的且在方法外： " + typeof (global_novar)); // "undefined"
+            console.log("var 没定义的且在方法内： " + typeof (global_fromfunc)); // "undefined"
+        }
+
+        //单var形式
+        function click_03() {
+            var a = 1,
+                b = 2,
+                sun = a + b;
+            console.log(sun);
+        }
+
+        //最佳集合遍历
+        function click_04() {
+            // 第一种使用for
+            var i,
+                max,
+                myArray = ['1', '2', '3', '4'];
+            for (i = 0, max = myArray.length; i < max; i++) {
+                console.log(myArray[i]);
+            }
+
+            //第二种使用while
+            var myArray1 = ['5', '6', '7', '8'],
+                i = myArray1.length;
+            while (i--) {
+                console.log(myArray1[i]);
+            }
+        }
+
+        //for-in循环(枚举)
+        function click_05() {
+            //定义对象
+            var man = {
+                hands: 2,
+                legs: 2,
+                heads: 1
+            };
+
+            // 在代码的某个地方
+            // 一个方法添加给了所有对象，测试hasOwnProperty方法
+            if (typeof Object.prototype.clone === "undefined") {
+                Object.prototype.clone = function () {
+                    var name = "zhang";
+                }
+            }
+
+            for (var i in man) {
+                if (man.hasOwnProperty(i)) { // 过滤从原型链上下来的东西
+                    console.log(i + ":" + man[i]);
+                }
+            }
+
+            for (var i in man) {
+                console.log(i + ":" + man[i]); // 不建议未经过滤直接获取
+            }
+        }
+
+        function click_06(inspect_me) {
+            var inspect_me,
+                result = '';
+            switch (inspect_me) {
+                case 0:
+                    result = "zero";
+                    break;
+                case 1:
+                    result = "one";
+                    break;
+                case 2:
+                    result = "two";
+                    break;
+                default:
+                    result = "输入不正确"; //上边条件都不满足的情况，会在这赋值
+            }
+            console.log(result);
+        }
+    </script>
+</head>
+<body>
+<button onclick="click_01()">最小全局变量</button>
+<h3></h3>
+<p>隐形全局变量和明确定义的全局变量间有些小的差异，就是通过delete操作符让变量未定义的能力</p>
+<ul>
+    <li>通过var创建的全局变量（任何函数之外的程序中创建） 是不能被删除的</li>
+    <li>无var创建的隐式全局变量（无视是否在函数中创建）是能被删除的</li>
+</ul>
+<p>这表明，在技术上，隐式全局变量并不是真正的全局变量，但它们是全局对象的属性。属性是可以通过delete操作符删除的，而变量是不能的</p>
+<button onclick="click_02()">点我</button>
+<h3></h3>
+<button onclick="click_03()">单var形式</button>
+<h3></h3>
+<button onclick="click_04()">最佳for循环集合遍历</button>
+<h3></h3>
+<p>for-in循环应该用在非数组对象的遍历上(对象属性上)，使用for-in进行循环也被称为“枚举”。</p>
+<button onclick="click_05()">for-in循环(枚举)</button>
+<h3></h3>
+<p>可以通过类似下面形式的switch语句增强可读性和健壮性</p>
+<button onclick="click_06(1)">switch语句</button>
+</body>
+</html>
